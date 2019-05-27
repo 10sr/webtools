@@ -18,3 +18,6 @@ runserver:
 		--access-logfile - \
 		--reload \
 		webtools.wsgi:application
+
+startapp:
+	$(python3) manage.py $@ $(app)

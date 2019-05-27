@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "export_as_bookmark.apps.ExportAsBookmarkConfig",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
