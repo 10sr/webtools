@@ -119,3 +119,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# webtools specific
+
+# Use Redis.from_url
+EXPORT_AS_BOOKMARK_REDIS_URL = "redis://localhost:7799/1"
