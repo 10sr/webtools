@@ -2,6 +2,8 @@ WEBTOOLS_PORT ?= 7700
 # 0.0.0.0 is required when run inside of docker container
 WEBTOOLS_HOST ?= 0.0.0.0
 
+REDIS_PORT ?= 7799
+
 pipenv := pipenv
 python3 := $(pipenv) run python3
 
@@ -21,3 +23,7 @@ runserver:
 
 startapp:
 	$(python3) manage.py $@ $(app)
+
+
+run-viahoncho:
+	REDIS_PORT=$(REDIS_PORT) $(pipenv) run honcho start
