@@ -10,6 +10,7 @@ from django.template import loader
 from django.urls import reverse
 
 from .redis import Redis
+from .bookmark_exporter import BookmarkExporter
 
 
 def index(req: HttpRequest) -> HttpResponse:
@@ -24,6 +25,8 @@ def post(req: HttpRequest) -> HttpResponse:
         return HttpResponseBadRequest("Body not given")
 
     print(body)
+    be = BookmarkExporter.from_lines(body)
+    print(be.export("name"))
     Redis.set("1", body.encode("utf-8"), ex=60)
     return HttpResponseRedirect(reverse("export_as_bookmark:download", args=("1",)))
 
