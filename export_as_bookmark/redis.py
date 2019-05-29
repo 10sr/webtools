@@ -1,4 +1,5 @@
 from urllib.parse import urlparse
+from typing import Optional
 
 import redis
 
@@ -22,9 +23,9 @@ class Redis:
         return cls.__client
 
     @classmethod
-    def set(cls, k: str, v: bytes):
-        return cls._client().set(k, v)
+    def set(cls, k: str, v: bytes, **kargs):
+        return cls._client().set(k, v, **kargs)
 
     @classmethod
-    def get(cls, k: str) -> bytes:
+    def get(cls, k: str) -> Optional[bytes]:
         return cls._client().get(k)

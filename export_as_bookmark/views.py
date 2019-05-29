@@ -24,10 +24,12 @@ def post(req: HttpRequest) -> HttpResponse:
         return HttpResponseBadRequest("Body not given")
 
     print(body)
-    Redis.set("1", body.encode("utf-8"))
+    Redis.set("1", body.encode("utf-8"), ex=60)
     return HttpResponseRedirect(reverse("export_as_bookmark:download", args=("1",)))
 
 
 def download(req: HttpRequest, id: str) -> HttpResponse:
-    val = Redis.get(id).decode("utf-8")
+    val = Redis.get(id)
+    if val:
+        val = val.decode("utf-8")
     return HttpResponse(f"{id}: {repr(val)}")
