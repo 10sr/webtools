@@ -1,6 +1,5 @@
 # from pprint import pformat
 
-from django.conf import settings
 from django.http import (
     HttpRequest,
     HttpResponse,
@@ -25,11 +24,10 @@ def post(req: HttpRequest) -> HttpResponse:
         return HttpResponseBadRequest("Body not given")
 
     print(body)
-    redis = Redis(settings)
-    redis.set("1", body)
+    Redis.set("1", body.encode("utf-8"))
     return HttpResponseRedirect(reverse("export_as_bookmark:download", args=("1",)))
 
 
 def download(req: HttpRequest, id: str) -> HttpResponse:
-    redis = Redis(settings)
-    return HttpResponse(f"{id}: {repr(redis.get(id))}")
+    val = Redis.get(id).decode("utf-8")
+    return HttpResponse(f"{id}: {repr(val)}")

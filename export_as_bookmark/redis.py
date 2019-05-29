@@ -5,20 +5,26 @@ import redis
 
 class Redis:
     __client = None
+    url: str
 
-    def __init__(self, settings):
-        self.url = settings.EXPORT_AS_BOOKMARK_REDIS_URL
+    def __init__(self):
+        raise RuntimeError("Cannot instanciate")
+
+    @classmethod
+    def ready(cls, settings):
+        cls.url = settings.EXPORT_AS_BOOKMARK_REDIS_URL
         return
 
-    @property
-    def _client(self):
-        if self.__client is None:
-            # TODO: How to reuse redis client???
-            self.__client = redis.Redis.from_url(self.url)
-        return self.__client
+    @classmethod
+    def _client(cls):
+        if cls.__client is None:
+            cls.__client = redis.Redis.from_url(cls.url)
+        return cls.__client
 
-    def set(self, k, v):
-        return self._client.set(k, v)
+    @classmethod
+    def set(cls, k: str, v: bytes):
+        return cls._client().set(k, v)
 
-    def get(self, k):
-        return self._client.get(k)
+    @classmethod
+    def get(cls, k: str) -> bytes:
+        return cls._client().get(k)
