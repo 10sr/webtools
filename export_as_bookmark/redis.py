@@ -4,6 +4,8 @@ from typing import Optional
 import redis
 
 
+# TODO: Use costum storage system?
+# https://docs.djangoproject.com/en/2.2/howto/custom-file-storage/
 class Redis:
     __client = None
     url: str
