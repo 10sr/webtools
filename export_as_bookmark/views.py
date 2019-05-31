@@ -27,9 +27,9 @@ def post(req: HttpRequest) -> HttpResponse:
     except KeyError:
         return HttpResponseBadRequest("Body not given")
 
-    print(body)
+    request_id = id(req)
     be = BookmarkExporter.from_lines(body)
-    exported_bytes = be.export("BookmarkExporter-1").encode("utf-8")
+    exported_bytes = be.export(f"ExportAsBookmark-{request_id}").encode("utf-8")
     key = sha512(exported_bytes).hexdigest()
     Redis.set(key, exported_bytes, ex=60)
     return HttpResponseRedirect(reverse("export_as_bookmark:done", args=(key,)))
