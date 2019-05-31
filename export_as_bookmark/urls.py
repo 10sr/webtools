@@ -8,5 +8,5 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("post", views.post, name="post"),
     path("done/<id>", views.done, name="done"),
-    path("download/<id>", views.download, name="download"),
+    path("download/<id>.html", views.download, name="download"),
 ]
