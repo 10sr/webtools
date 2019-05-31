@@ -11,15 +11,15 @@ class BookmarkExporter:
 <H1>ExportAsBookmark</H1>
 
 <DL><p>
-    <DT><H3 ADD_DATE="1559279096" LAST_MODIFIED="1559279096" PERSONAL_TOOLBAR_FOLDER="true">{name}</H3>
-    <DL><p>
+<DT><H3>{name}</H3>
+<DL><p>
 {bookmarks}
-    </DL><p>
+</DL><p>
 </DL><p>
 
 """
 
-    _TEMPLATE_A = """<DT><A HREF="{url}" ADD_DATE="1559279096" LAST_MODIFIED="1559279096">{title}</A>\n"""
+    _TEMPLATE_A = """<DT><A HREF="{url}">{title}</A>\n"""
 
     urls: List[str]
 
