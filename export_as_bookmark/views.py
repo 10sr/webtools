@@ -1,8 +1,11 @@
 # from pprint import pformat
+from hashlib import sha512
+import html
 
 from django.http import (
     HttpRequest,
     HttpResponse,
+    HttpResponseNotFound,
     HttpResponseBadRequest,
     HttpResponseRedirect,
 )
@@ -26,13 +29,19 @@ def post(req: HttpRequest) -> HttpResponse:
 
     print(body)
     be = BookmarkExporter.from_lines(body)
-    print(be.export("name"))
-    Redis.set("1", body.encode("utf-8"), ex=60)
-    return HttpResponseRedirect(reverse("export_as_bookmark:download", args=("1",)))
+    exported_bytes = be.export("BookmarkExporter-1").encode("utf-8")
+    key = sha512(exported_bytes).hexdigest()
+    Redis.set(key, exported_bytes, ex=60)
+    return HttpResponseRedirect(reverse("export_as_bookmark:done", args=(key,)))
+
+
+def done(req: HttpRequest, id: str) -> HttpResponse:
+    tpl = loader.get_template("export_as_bookmark/done.html.dtl")
+    return HttpResponse(tpl.render({"id": id}, req))
 
 
 def download(req: HttpRequest, id: str) -> HttpResponse:
     val = Redis.get(id)
-    if val:
-        val = val.decode("utf-8")
-    return HttpResponse(f"{id}: {repr(val)}")
+    if val is None:
+        return HttpResponseNotFound(f"Content of id {id[:24]} not found. Expired?")
+    return HttpResponse(val.decode("utf-8"))
