@@ -27,6 +27,9 @@ gunicorn:
 startapp:
 	$(python3) manage.py $@ $(app)
 
+migrate:
+	$(python3) manage.py $@
+
 
 
 # Honcho ################
