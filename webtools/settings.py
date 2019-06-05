@@ -12,25 +12,46 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+import dj_database_url
+import toml
 
+
+class _Config:
+    def __init__(self, path):
+        with open(path) as f:
+            self.toml = toml.load(f)
+        return
+
+    def __getattr__(self, name):
+        return self.toml["webtools"][name]
+
+    def get(self, name, default=None):
+        try:
+            return getattr(self, name)
+        except KeyError:
+            return default
+
+
+_c = _Config(os.environ.get("WEBTOOLS_SETTINGS_TOML", "settings.toml"))
+
+is_prod = _c.ENV == "prod"
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = not is_prod
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'i54q%aiq(olufk#+yjg5e#st1r12%#&_ilm$1*rh_6pn0l^96o'
+SECRET_KEY = _c.SECRET_KEY
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [_c.ALLOWED_HOST]
+USE_X_FORWARDED_HOST = _c.get("USE_X_FORWARDED_HOST", False)
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    # Do not forget to add app or django cannot find templates!
     "export_as_bookmark.apps.ExportAsBookmarkConfig",
     'django.contrib.admin',
     'django.contrib.auth',
@@ -75,10 +96,7 @@ WSGI_APPLICATION = 'webtools.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': dj_database_url.parse(_c.DATABASE_URL),
 }
 
 
@@ -105,15 +123,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
@@ -124,4 +137,4 @@ STATIC_URL = '/static/'
 # webtools specific
 
 # Use Redis.from_url
-EXPORT_AS_BOOKMARK_REDIS_URL = "redis://localhost:7799/1"
+EXPORT_AS_BOOKMARK_REDIS_URL = _c.EXPORT_AS_BOOKMARK_REDIS_URL

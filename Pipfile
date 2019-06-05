@@ -10,6 +10,8 @@ django = "*"
 gunicorn = "*"
 honcho = "*"
 redis = "*"
+dj-database-url = "*"
+toml = "*"
 
 [requires]
 python_version = "3.7"
