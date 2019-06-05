@@ -25,8 +25,19 @@ startapp:
 	$(python3) manage.py $@ $(app)
 
 
-run-viahoncho:
+
+# Honcho ################
+
+honcho:
 	REDIS_PORT=$(REDIS_PORT) $(pipenv) run honcho start
+
+
+# Targets for honcho #######################
+
+honcho-web: runserver
+
+honcho-redis:
+	redis-server --port $(REDIS_PORT)
 
 
 # Docker ###################
