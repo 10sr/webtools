@@ -42,9 +42,9 @@ honcho:
 
 # Targets for honcho #######################
 
-honcho-web: gunicorn
+proc-web: gunicorn
 
-honcho-redis:
+proc-redis:
 	redis-server --port $(REDIS_PORT)
 
 

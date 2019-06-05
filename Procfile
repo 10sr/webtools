@@ -1,2 +1,2 @@
-web: make honcho-web
-redis: make honcho-redis
+web: make proc-web
+redis: make proc-redis
