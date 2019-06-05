@@ -8,10 +8,13 @@ pipenv := pipenv
 python3 := $(pipenv) run python3
 
 
-runserver-viamanager:
-	$(python3) manage.py runserver "$(WEBTOOLS_HOST):$(WEBTOOLS_PORT)"
+start: gunicorn
+
 
 runserver:
+	$(python3) manage.py runserver "$(WEBTOOLS_HOST):$(WEBTOOLS_PORT)"
+
+gunicorn:
 	$(pipenv) run gunicorn \
 		--bind "$(WEBTOOLS_HOST):$(WEBTOOLS_PORT)" \
 		--workers 2 \
@@ -34,7 +37,7 @@ honcho:
 
 # Targets for honcho #######################
 
-honcho-web: runserver
+honcho-web: gunicorn
 
 honcho-redis:
 	redis-server --port $(REDIS_PORT)
