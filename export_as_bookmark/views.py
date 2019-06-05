@@ -28,19 +28,20 @@ def post(req: HttpRequest) -> HttpResponse:
         return HttpResponseBadRequest("Body not given")
 
     request_id = id(req)
-    be = BookmarkExporter.from_lines(body)
-    exported_bytes = be.export(f"ExportAsBookmark-{request_id}").encode("utf-8")
+    name = f"ExportAsBookmark-{request_id}"
+    exporter = BookmarkExporter.from_lines(body)
+    exported_bytes = exporter.export(name).encode("utf-8")
     key = sha512(exported_bytes).hexdigest()
     Redis.set(key, exported_bytes, ex=60)
-    return HttpResponseRedirect(reverse("export_as_bookmark:done", args=(key,)))
+    return HttpResponseRedirect(reverse("export_as_bookmark:done", args=(key, name)))
 
 
-def done(req: HttpRequest, id: str) -> HttpResponse:
+def done(req: HttpRequest, id: str, name: str) -> HttpResponse:
     tpl = loader.get_template("export_as_bookmark/done.html.dtl")
-    return HttpResponse(tpl.render({"id": id}, req))
+    return HttpResponse(tpl.render({"id": id, "name": name}, req))
 
 
-def download(req: HttpRequest, id: str) -> HttpResponse:
+def download(req: HttpRequest, id: str, name: str) -> HttpResponse:
     val = Redis.get(id)
     if val is None:
         return HttpResponseNotFound(f"Content of id {id[:24]} not found. Expired?")

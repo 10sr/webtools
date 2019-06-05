@@ -7,6 +7,6 @@ app_name = ExportAsBookmarkConfig.label
 urlpatterns = [
     path("", views.index, name="index"),
     path("post", views.post, name="post"),
-    path("done/<id>", views.done, name="done"),
-    path("download/<id>.html", views.download, name="download"),
+    path("done/<id>/<name>", views.done, name="done"),
+    path("download/<id>/<name>.html", views.download, name="download"),
 ]
