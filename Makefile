@@ -27,3 +27,20 @@ startapp:
 
 run-viahoncho:
 	REDIS_PORT=$(REDIS_PORT) $(pipenv) run honcho start
+
+
+# Docker ###################
+
+docker-build:
+	docker build . -t local/webtools
+
+docker-run: docker-stop
+	docker run \
+		--name webtools01 \
+		--rm \
+		-p '$(TRIGGER_PORT):$(TRIGGER_PORT)' \
+		--env-file env.secret \
+		local/trigger
+
+docker-stop:
+	docker stop webtools01 || true
