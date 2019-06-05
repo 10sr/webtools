@@ -16,8 +16,8 @@ RUN pip3 install pipenv==$PIPENV_VERSION_
 COPY Pipfile Pipfile.lock ./
 RUN env -u PIPENV_VERSION pipenv install --deploy # --system
 
-COPY webtools ./
-COPY export_as_bookmark ./
+COPY webtools webtools
+COPY export_as_bookmark export_as_bookmark
 COPY Makefile manage.py ./
 
 EXPOSE $WEBTOOLS_PORT
