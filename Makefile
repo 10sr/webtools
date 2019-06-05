@@ -59,7 +59,7 @@ docker-run: docker-stop
 		--rm \
 		-p '$(TRIGGER_PORT):$(TRIGGER_PORT)' \
 		--env-file env.secret \
-		local/trigger
+		local/webtools
 
 docker-stop:
 	docker stop webtools01 || true
