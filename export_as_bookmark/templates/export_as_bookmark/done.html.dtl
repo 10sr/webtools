@@ -1,0 +1,2 @@
+ID: {{ id }}<br>
+Right click: <a href="{% url 'export_as_bookmark:download' id name %}">HTML</a>
