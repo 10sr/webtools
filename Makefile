@@ -8,6 +8,9 @@ pipenv := pipenv
 python3 := $(pipenv) run python3
 
 
+installdeps:
+	$(pipenv) install --deploy
+
 start: gunicorn
 
 

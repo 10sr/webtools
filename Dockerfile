@@ -14,7 +14,8 @@ WORKDIR /root/app
 RUN pip3 install pipenv==$PIPENV_VERSION_
 
 COPY Pipfile Pipfile.lock ./
-RUN env -u PIPENV_VERSION pipenv install --deploy # --system
+#RUN pipenv install --deploy # --system
+RUN make installdeps
 
 COPY webtools webtools
 COPY lggr lggr

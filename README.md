@@ -17,5 +17,5 @@ Run Server
 
 First, copy `settings_local.toml` to `settings.toml` and edit that file.
 
-    pipenv install
+    make installdeps
     make honcho
