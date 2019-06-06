@@ -54,6 +54,7 @@ USE_X_FORWARDED_HOST = _c.get("USE_X_FORWARDED_HOST", False)
 INSTALLED_APPS = [
     # Do not forget to add app or django cannot find templates!
     "export_as_bookmark.apps.ExportAsBookmarkConfig",
+    "lggr.apps.LggrConfig",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
