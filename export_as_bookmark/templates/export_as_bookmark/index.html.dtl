@@ -1,5 +1,5 @@
 <form action="{% url 'export_as_bookmark:post' %}" method="post">
-    <input type="submit" value="Export As Bookmark" />
+    <p><input type="submit" value="Export As Bookmark" /></p>
     {% csrf_token %}
     <textarea name="body"></textarea>
 </form>
