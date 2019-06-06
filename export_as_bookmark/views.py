@@ -42,10 +42,11 @@ def done(req: HttpRequest, id: str, name: str) -> HttpResponse:
 
 
 def download(req: HttpRequest, id: str, name: str) -> HttpResponse:
-    # TODO: Kill referer
-    # TODO: Ur use req.session?
+    # TODO: Use req.session?
     # https://docs.djangoproject.com/en/2.1/ref/request-response/#django.http.HttpRequest.session
     val = Redis.get(id)
     if val is None:
         return HttpResponseNotFound(f"Content of id {id[:24]} not found. Expired?")
-    return HttpResponse(val.decode("utf-8"))
+    res = HttpResponse(val.decode("utf-8"))
+    res["Referrer-Policy"] = "origin"
+    return res
