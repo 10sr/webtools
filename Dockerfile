@@ -21,6 +21,10 @@ COPY lggr lggr
 COPY export_as_bookmark export_as_bookmark
 COPY Makefile manage.py ./
 
+COPY .git/HEAD .git/
+COPY .git/refs .git/refs
+RUN mkdir -p .git/objects && git rev-parse HEAD >HEAD.txt && cat HEAD.txt
+
 EXPOSE $WEBTOOLS_PORT
 
 # TODO: Pass via build argument
