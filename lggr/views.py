@@ -18,6 +18,7 @@ logger = logging.getLogger(__name__)
 
 def index(req: HttpRequest) -> HttpResponse:
     tpl = loader.get_template("lggr/index.html.dtl")
+    # https://stackoverflow.com/questions/4591525/is-it-possible-to-pass-query-parameters-via-djangos-url-template-tag
     return HttpResponse(tpl.render({"v1": "value1", "v2": str(timezone.now())}, req))
 
 
