@@ -1,4 +1,4 @@
-FROM python:3
+]FROM python:3
 
 # Name PIPENV_VERSION is used by pipenv itself
 ENV PIPENV_VERSION_ 2018.11.26
@@ -17,6 +17,7 @@ COPY Pipfile Pipfile.lock ./
 RUN env -u PIPENV_VERSION pipenv install --deploy # --system
 
 COPY webtools webtools
+COPY lggr lggr
 COPY export_as_bookmark export_as_bookmark
 COPY Makefile manage.py ./
 
