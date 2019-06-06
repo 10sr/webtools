@@ -38,6 +38,7 @@ def post(req: HttpRequest) -> HttpResponse:
 
 def done(req: HttpRequest, id: str, name: str) -> HttpResponse:
     tpl = loader.get_template("export_as_bookmark/done.html.dtl")
+    # TODO: Show expire limit
     return HttpResponse(tpl.render({"id": id, "name": name}, req))
 
 
