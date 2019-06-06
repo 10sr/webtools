@@ -9,9 +9,17 @@ from django.http import (
     HttpResponseRedirect,
 )
 from django.views.decorators.csrf import csrf_exempt
+from django.template import loader
+from django.utils import timezone
 
 
 logger = logging.getLogger(__name__)
+
+
+def index(req: HttpRequest) -> HttpResponse:
+    tpl = loader.get_template("lggr/index.html.dtl")
+    return HttpResponse(tpl.render({"v1": "value1", "v2": str(timezone.now())}, req))
+
 
 def get(req: HttpRequest) -> HttpResponse:
     request_id = id(req)
@@ -30,6 +38,7 @@ Id: {request_id} get/ Requested <<<<<
     # logger.warning(f"Id: {request_id} get/ Requested <<<<<")
     logger.warning(log)
     return HttpResponse(log, content_type="text/plain")
+
 
 # curl -X POST -d @a.txt localhost:7700/webtools/lggr/post
 @csrf_exempt

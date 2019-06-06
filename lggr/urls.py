@@ -9,5 +9,5 @@ urlpatterns = [
     # path("", views.index, name="index"),
     path("get", views.get, name="get"),
     path("post", views.post, name="post"),
-    path("", RedirectView.as_view(url=f"get")),
+    path("", views.index, name="index"),
 ]

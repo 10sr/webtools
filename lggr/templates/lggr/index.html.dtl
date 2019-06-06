@@ -1,0 +1,1 @@
+<a href="{% url 'lggr:get' %}?v1={{ v1 | urlencode }}&v2={{ v2 | urlencode }}">get/ with parameters</a>
