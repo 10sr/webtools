@@ -25,7 +25,7 @@ gunicorn:
 		webtools.wsgi:application
 
 startapp:
-	$(python3) manage.py $@ $(app)
+	$(python3) manage.py $@ $(app) $(directory)
 
 migrate:
 	$(python3) manage.py $@

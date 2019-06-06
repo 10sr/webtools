@@ -20,10 +20,9 @@ from django.views.generic.base import RedirectView
 _path = "webtools"
 
 urlpatterns = [
+    path(f"{_path}/", include("webtools.rootapp.urls")),
     path(f"{_path}/export-as-bookmark/", include("export_as_bookmark.urls")),
     path(f"{_path}/lggr/", include("lggr.urls")),
     path(f"{_path}/admin/", admin.site.urls),
-    # TODO: Add root page instead of redirecting
-    path(f"{_path}/", RedirectView.as_view(url=f"/{_path}/export-as-bookmark/")),
     path("", RedirectView.as_view(url=f"/{_path}/")),
 ]
