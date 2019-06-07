@@ -42,6 +42,7 @@ def done(req: HttpRequest, id: str, name: str) -> HttpResponse:
     return HttpResponse(tpl.render({"id": id, "name": name}, req))
 
 
+
 def download(req: HttpRequest, id: str, name: str) -> HttpResponse:
     # TODO: Use req.session?
     # https://docs.djangoproject.com/en/2.1/ref/request-response/#django.http.HttpRequest.session

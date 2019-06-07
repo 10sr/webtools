@@ -1,6 +1,6 @@
 <a href="{% url 'lggr:get' %}?v1={{ v1 | urlencode }}&v2={{ v2 | urlencode }}">get/ with parameters</a>
 
-<form action="{% url 'lggr:post' %}" method="post">
+<form action="{% url 'lggr:post' %}?getparam1={{ v1 | urlencode }}&getparam2={{ v2 | urlencode }}" method="post">
     <p><input type="submit" value="Post!" /></p>
     <p><input type="text" name="note" value="{{ v1 | urlencode }}" /></p>
     <textarea name="body">{{ v2 }}</textarea>

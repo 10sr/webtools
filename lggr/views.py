@@ -48,6 +48,8 @@ def post(req: HttpRequest) -> HttpResponse:
     log = f"""Id: {request_id} post/ Requested >>>>>
 req.META:
 {pprint.pformat(req.META)}
+req.GET:
+{pprint.pformat(req.GET.dict())}
 req.body:
 {repr(req.body)}
 req.POST:
