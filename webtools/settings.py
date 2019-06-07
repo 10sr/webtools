@@ -13,11 +13,13 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 
 import dj_database_url
-# TODO: Use dynaconf
+# TODO: Use dynaconf?
 import toml
 
 
 class _Config:
+    # TODO: Define what configs are available
+    # TODO: Define default variables here
     def __init__(self, path):
         with open(path) as f:
             self.toml = toml.load(f)
