@@ -10,11 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+import os
+
 import dj_database_url
 
 from .config import Config
 
-_c = Config()
+_c = Config.from_toml(os.environ.get("WEBTOOLS_SETTINGS_TOML", "settings.toml"))
 
 is_prod = _c.ENV == "prod"
 
@@ -27,7 +29,7 @@ DEBUG = not is_prod
 SECRET_KEY = _c.SECRET_KEY
 
 ALLOWED_HOSTS = [_c.ALLOWED_HOST]
-USE_X_FORWARDED_HOST = _c.get("USE_X_FORWARDED_HOST", False)
+USE_X_FORWARDED_HOST = _c.USE_X_FORWARDED_HOST
 
 
 # Application definition

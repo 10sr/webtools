@@ -1,23 +1,18 @@
-import os
-# TODO: Use dynaconf?
+import dataclasses
 import toml
 
 
+@dataclasses.dataclass
 class Config:
-    filepath = None
-    # TODO: Define what configs are available
-    # TODO: Define default variables here
-    def __init__(self):
-        self.filepath = os.environ.get("WEBTOOLS_SETTINGS_TOML", "settings.toml")
-        with open(self.filepath) as f:
-            self.toml = toml.load(f)
-        return
+    ENV: str
+    SECRET_KEY: str
+    ALLOWED_HOST: str
+    DATABASE_URL: str
+    EXPORT_AS_BOOKMARK_REDIS_URL: str
+    USE_X_FORWARDED_HOST: bool = False
 
-    def __getattr__(self, name):
-        return self.toml["webtools"][name]
-
-    def get(self, name, default=None):
-        try:
-            return getattr(self, name)
-        except KeyError:
-            return default
+    @classmethod
+    def from_toml(cls, filepath):
+        with open(filepath) as f:
+            obj = toml.load(f)
+        return cls(**obj["webtools"])
