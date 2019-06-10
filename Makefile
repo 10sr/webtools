@@ -71,20 +71,26 @@ docker-stop:
 
 # Formatter and Linter ###############
 
+check-format: black-check isort-check pydocstyle
+
+# black
+
 black:
 	$(pipenv) run black .
-
 
 black-check:
 	$(pipenv) run black --check .
 
-
-isort_target_dirs := webtools lggr export_as_bookmark
-
 # isort
+isort_target_dirs := webtools lggr export_as_bookmark
 
 isort:
 	$(pipenv) run isort -rc $(isort_target_dirs)
 
 isort-check:
 	$(pipenv) run isort -rc $(isort_target_dirs) -c -vb
+
+# pydocstyle
+
+pydocstyle:
+	$(pipenv) run pydocstyle .
