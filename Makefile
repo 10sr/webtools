@@ -66,3 +66,14 @@ docker-run: docker-stop
 
 docker-stop:
 	docker stop webtools01 || true
+
+
+
+# Black ###############
+
+black:
+	$(pipenv) run black .
+
+
+black-check:
+	$(pipenv) run black --check .

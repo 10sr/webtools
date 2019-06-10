@@ -12,6 +12,10 @@ honcho = "*"
 redis = "*"
 dj-database-url = "*"
 toml = "*"
+black = "*"
 
 [requires]
 python_version = "3.7"
+
+[pipenv]
+allow_prereleases = true
