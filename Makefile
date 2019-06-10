@@ -69,7 +69,7 @@ docker-stop:
 
 
 
-# Black ###############
+# Formatter and Linter ###############
 
 black:
 	$(pipenv) run black .
@@ -77,3 +77,14 @@ black:
 
 black-check:
 	$(pipenv) run black --check .
+
+
+isort_target_dirs := webtools lggr export_as_bookmark
+
+# isort
+
+isort:
+	$(pipenv) run isort -rc $(isort_target_dirs)
+
+isort-check:
+	$(pipenv) run isort -rc $(isort_target_dirs) -c -vb
