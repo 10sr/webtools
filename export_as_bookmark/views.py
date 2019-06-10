@@ -1,19 +1,20 @@
 # from pprint import pformat
-from hashlib import sha512
 import html
+
+from hashlib import sha512
 
 from django.http import (
     HttpRequest,
     HttpResponse,
-    HttpResponseNotFound,
     HttpResponseBadRequest,
+    HttpResponseNotFound,
     HttpResponseRedirect,
 )
 from django.template import loader
 from django.urls import reverse
 
-from .redis import Redis
 from .bookmark_exporter import BookmarkExporter
+from .redis import Redis
 
 
 def index(req: HttpRequest) -> HttpResponse:

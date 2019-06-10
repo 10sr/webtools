@@ -1,17 +1,16 @@
-import pprint
 import logging
+import pprint
 
 from django.http import (
     HttpRequest,
     HttpResponse,
-    HttpResponseNotFound,
     HttpResponseBadRequest,
+    HttpResponseNotFound,
     HttpResponseRedirect,
 )
-from django.views.decorators.csrf import csrf_exempt
 from django.template import loader
 from django.utils import timezone
-
+from django.views.decorators.csrf import csrf_exempt
 
 logger = logging.getLogger(__name__)
 

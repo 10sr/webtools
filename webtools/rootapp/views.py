@@ -1,11 +1,10 @@
 from django.http import (
     HttpRequest,
     HttpResponse,
-    HttpResponseNotFound,
     HttpResponseBadRequest,
+    HttpResponseNotFound,
     HttpResponseRedirect,
 )
-
 
 app_paths = ["export-as-bookmark", "lggr"]
 

@@ -1,6 +1,6 @@
-from typing import List
-
 import html
+
+from typing import List
 
 
 class BookmarkExporter:
