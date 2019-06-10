@@ -10,32 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
-import os
-
 import dj_database_url
-# TODO: Use dynaconf?
-import toml
 
+from .config import Config
 
-class _Config:
-    # TODO: Define what configs are available
-    # TODO: Define default variables here
-    def __init__(self, path):
-        with open(path) as f:
-            self.toml = toml.load(f)
-        return
-
-    def __getattr__(self, name):
-        return self.toml["webtools"][name]
-
-    def get(self, name, default=None):
-        try:
-            return getattr(self, name)
-        except KeyError:
-            return default
-
-
-_c = _Config(os.environ.get("WEBTOOLS_SETTINGS_TOML", "settings.toml"))
+_c = Config()
 
 is_prod = _c.ENV == "prod"
 
