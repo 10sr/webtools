@@ -94,3 +94,9 @@ isort-check:
 
 pydocstyle:
 	$(pipenv) run pydocstyle .
+
+
+# mypy ########################
+
+mypy:
+	$(pipenv) run mypy --config-file .mypy.ini .
