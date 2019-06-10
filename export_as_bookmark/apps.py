@@ -8,5 +8,6 @@ class ExportAsBookmarkConfig(AppConfig):
 
     def ready(self):
         from .redis import Redis
+
         Redis.ready(settings)
         return
