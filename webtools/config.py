@@ -15,4 +15,11 @@ class Config:
     def from_toml(cls, filepath):
         with open(filepath) as f:
             obj = toml.load(f)
-        return cls(**obj["webtools"])
+        args = obj["webtools"]
+
+        # Check type explicitly
+        for field in dataclasses.fields(cls):
+            if field.name in args:
+                assert isinstance(args[field.name], field.type)
+
+        return cls(**args)
