@@ -21,6 +21,9 @@ check-format: black-check isort-check pydocstyle
 installdeps:
 	$(pipenv) install --deploy
 
+installdeps-dev:
+	$(pipenv) install --dev --deploy
+
 
 # Tests ##################
 

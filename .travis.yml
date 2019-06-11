@@ -12,7 +12,7 @@ git:
 
 install:
   - python -m pip install pipenv
-  - make installdeps
+  - make installdeps-dev
 
 script:
   - make check
