@@ -7,12 +7,37 @@ REDIS_PORT ?= 7799
 pipenv := pipenv
 python3 := $(pipenv) run python3
 
+# Meta targets ##############
+
+start: gunicorn
+
+check: app-test # check-format
+
+check-format: black-check isort-check pydocstyle
+
+
+# Initialize ##################
 
 installdeps:
 	$(pipenv) install --deploy
 
-start: gunicorn
+installdeps-dev:
+	$(pipenv) install --dev --deploy
 
+
+# Tests ##################
+
+app-test:
+	WEBTOOLS_SETTINGS_TOML=tests/settings.toml $(python3) manage.py makemigrations --dry-run --check
+	# TODO: Use separate script
+	# https://docs.djangoproject.com/en/2.2/topics/testing/advanced/#testing-reusable-applications
+	WEBTOOLS_SETTINGS_TOML=tests/settings.toml $(pipenv) run coverage run ./manage.py test tests/ --pattern='*.py'
+
+codecov:
+	$(pipenv) run codecov
+
+
+# Run ###################333
 
 runserver:
 	$(python3) manage.py runserver "$(WEBTOOLS_HOST):$(WEBTOOLS_PORT)"
@@ -70,8 +95,6 @@ docker-stop:
 
 
 # Formatter and Linter ###############
-
-check-format: black-check isort-check pydocstyle
 
 # black
 

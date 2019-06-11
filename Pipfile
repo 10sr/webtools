@@ -8,6 +8,8 @@ black = "*"
 isort = {extras = ["pyproject"],version = "*"}
 pydocstyle = "*"
 mypy = "*"
+coverage = "*"
+codecov = "*"
 
 [packages]
 django = "*"
