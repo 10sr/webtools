@@ -1,6 +1,7 @@
 [run]
 branch = True
-source = dowwner
+omit =
+    tests/*
 
 [report]
 exclude_lines =
