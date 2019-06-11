@@ -11,6 +11,8 @@ python3 := $(pipenv) run python3
 
 start: gunicorn
 
+check: app-test # check-format
+
 check-format: black-check isort-check pydocstyle
 
 
