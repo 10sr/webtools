@@ -82,13 +82,12 @@ black-check:
 	$(pipenv) run black --check .
 
 # isort
-isort_target_dirs := webtools lggr export_as_bookmark
 
 isort:
-	$(pipenv) run isort -rc $(isort_target_dirs)
+	$(pipenv) run isort -rc .
 
 isort-check:
-	$(pipenv) run isort -rc $(isort_target_dirs) -c -vb
+	$(pipenv) run isort -rc . -c
 
 # pydocstyle
 

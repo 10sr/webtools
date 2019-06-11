@@ -21,6 +21,7 @@ exclude = '''
 
 
 [tool.isort]
+skip = "tests/"
 # Be happy with black formatter
 multi_line_output = 3
 include_trailing_comma = true
