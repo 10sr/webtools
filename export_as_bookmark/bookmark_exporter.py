@@ -23,15 +23,15 @@ class BookmarkExporter:
 
     urls: List[str]
 
-    def __init__(self, urls: List[str]):
+    def __init__(self, urls: List[str]) -> None:
         self.urls = list(urls)
         return
 
     @classmethod
-    def from_lines(cls, urls: str):
+    def from_lines(cls, urls: str) -> BookmarkExporter:
         return cls([url.strip() for url in urls.split("\n") if url.strip()])
 
-    def export(self, name: str):
+    def export(self, name: str) -> str:
         return self._TEMPLATE.format(
             name=name,
             bookmarks="".join(

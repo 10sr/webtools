@@ -41,7 +41,7 @@ Id: {request_id} get/ Requested <<<<<
 
 
 # curl -X POST -d @a.txt localhost:7700/webtools/lggr/post
-@csrf_exempt
+@csrf_exempt  # type: ignore   # disallow_untyped_decorators
 def post(req: HttpRequest) -> HttpResponse:
     request_id = id(req)
     log = f"""Id: {request_id} post/ Requested >>>>>

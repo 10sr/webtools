@@ -1,3 +1,5 @@
+from typing import Dict, Any
+
 import dataclasses
 
 import toml
@@ -13,7 +15,7 @@ class Config:
     USE_X_FORWARDED_HOST: bool = False
 
     @classmethod
-    def from_dict(cls, args):
+    def from_dict(cls, args: Dict[str, Any]) -> Config:
         # Check type explicitly
         for field in dataclasses.fields(cls):
             if field.name in args:
@@ -21,7 +23,7 @@ class Config:
         return cls(**args)
 
     @classmethod
-    def from_toml(cls, filepath):
+    def from_toml(cls, filepath: str) -> Config:
         with open(filepath) as f:
             obj = toml.load(f)
         return cls.from_dict(obj["webtools"])
