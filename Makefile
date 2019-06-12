@@ -122,3 +122,11 @@ pydocstyle:
 
 mypy:
 	$(pipenv) run mypy --config-file .mypy.ini .
+
+
+# pyment ####################
+
+pyment:
+	$(pipenv) run pyment -w -c .pyment.ini webtools
+	$(pipenv) run pyment -w -c .pyment.ini export_as_bookmark
+	$(pipenv) run pyment -w -c .pyment.ini lggr
