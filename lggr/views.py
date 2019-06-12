@@ -12,6 +12,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.template import loader
 from django.utils import timezone
 
+from ratelimit.decorators import ratelimit
+
 
 logger = logging.getLogger(__name__)
 
@@ -42,6 +44,8 @@ Id: {request_id} get/ Requested <<<<<
 
 
 # curl -X POST -d @a.txt localhost:7700/webtools/lggr/post
+# TODO: Possible to change key via config?
+@ratelimit(key="header:x-real-ip", rate="1/s", method=ratelimit.UNSAFE, block=True)
 @csrf_exempt
 def post(req: HttpRequest) -> HttpResponse:
     request_id = id(req)

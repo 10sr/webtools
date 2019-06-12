@@ -12,6 +12,7 @@ honcho = "*"
 redis = "*"
 dj-database-url = "*"
 toml = "*"
+django-ratelimit = "*"
 
 [requires]
 python_version = "3.7"
