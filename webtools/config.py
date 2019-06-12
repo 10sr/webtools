@@ -1,3 +1,5 @@
+"""Config object."""
+
 # from __future__ import annotations
 
 from typing import Dict, Any
@@ -9,6 +11,8 @@ import toml
 
 @dataclasses.dataclass(frozen=True)
 class Config:
+    """Definitions for configurations that loaded from external at runtime."""
+
     ENV: str
     SECRET_KEY: str
     ALLOWED_HOST: str
@@ -18,6 +22,7 @@ class Config:
 
     @classmethod
     def from_dict(cls, args: Dict[str, Any]) -> "Config":
+        """Set up config from dict object."""
         # Check type explicitly
         for field in dataclasses.fields(cls):
             if field.name in args:
@@ -29,6 +34,7 @@ class Config:
 
     @classmethod
     def from_toml(cls, filepath: str) -> "Config":
+        """Set up config from TOML file."""
         with open(filepath) as f:
             obj = toml.load(f)
         return cls.from_dict(obj["webtools"])

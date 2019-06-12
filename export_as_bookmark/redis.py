@@ -1,3 +1,6 @@
+"""Redis."""
+
+
 from typing import Optional, Any, Union
 from urllib.parse import urlparse
 
@@ -7,14 +10,23 @@ import redis
 # TODO: Use costum storage system?
 # https://docs.djangoproject.com/en/2.2/howto/custom-file-storage/
 class Redis:
+    """
+    Communicate with redis server.
+
+    This class is not intended to be instanciated, instead, use class
+    method directly.
+    """
+
     __client: Optional[redis.Redis] = None
     url: str
 
     def __init__(self) -> None:
+        """Raise error."""
         raise RuntimeError("Cannot instanciate")
 
     @classmethod
     def ready(cls, url: str) -> None:
+        """Set configs for redis connection."""
         cls.url = url
         return
 
@@ -27,10 +39,16 @@ class Redis:
     @classmethod
     # Should use Any for kargs?
     def set(cls, k: str, v: bytes, **kargs: Union[int, str]) -> Any:
+        """Set key-value pair."""
         return cls._client().set(k, v, **kargs)
 
     @classmethod
     def get(cls, k: str) -> Optional[bytes]:
+        """
+        Get value of key.
+
+        If key does not eixst or expired, return None.
+        """
         ret = cls._client().get(k)
         assert isinstance(ret, bytes) or ret is None
         return ret
