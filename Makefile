@@ -129,13 +129,6 @@ mypy:
 pydocstyle:
 	$(pipenv) run pydocstyle .
 
-# pyment
-
-pyment:
-	$(pipenv) run pyment -w -c .pyment.ini webtools
-	$(pipenv) run pyment -w -c .pyment.ini export_as_bookmark
-	$(pipenv) run pyment -w -c .pyment.ini lggr
-
 # darglint
 
 darglint:
