@@ -4,11 +4,13 @@ import os
 import sys
 
 
-def main():
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "webtools.settings")
+def main() -> None:
+    """Django main entrypoint."""
+    os.environ["DJANGO_SETTINGS_MODULE"] = "webtools.settings"
     from django.core.management import execute_from_command_line
 
     execute_from_command_line(sys.argv)
+    return
 
 
 if __name__ == "__main__":

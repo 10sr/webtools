@@ -7,12 +7,41 @@ REDIS_PORT ?= 7799
 pipenv := pipenv
 python3 := $(pipenv) run python3
 
+# Meta targets ##############
+
+start: gunicorn
+
+check: app-test check-format check-type check-docstrings
+
+check-format: black-check isort-check
+
+check-type: mypy
+
+check-docstrings: pydocstyle darglint
+
+
+# Initialize ##################
 
 installdeps:
 	$(pipenv) install --deploy
 
-start: gunicorn
+installdeps-dev:
+	$(pipenv) install --dev --deploy
 
+
+# Tests ##################
+
+app-test:
+	WEBTOOLS_SETTINGS_TOML=tests/settings.toml $(python3) manage.py makemigrations --dry-run --check
+	# TODO: Use separate script
+	# https://docs.djangoproject.com/en/2.2/topics/testing/advanced/#testing-reusable-applications
+	WEBTOOLS_SETTINGS_TOML=tests/settings.toml $(pipenv) run coverage run ./manage.py test tests/ --pattern='*.py'
+
+codecov:
+	$(pipenv) run codecov
+
+
+# Run ###################333
 
 runserver:
 	$(python3) manage.py runserver "$(WEBTOOLS_HOST):$(WEBTOOLS_PORT)"
@@ -66,3 +95,50 @@ docker-run: docker-stop
 
 docker-stop:
 	docker stop webtools01 || true
+
+
+
+# Formatter and Linter ###############
+
+# black
+
+black:
+	$(pipenv) run black .
+
+black-check:
+	$(pipenv) run black --check .
+
+# isort
+
+isort:
+	$(pipenv) run isort -rc .
+
+isort-check:
+	$(pipenv) run isort -rc . -c
+
+# mypy ########################
+
+mypy:
+	$(pipenv) run mypy .
+
+
+# docstring ####################
+
+# pydocstyle
+
+pydocstyle:
+	$(pipenv) run pydocstyle .
+
+# pyment
+
+pyment:
+	$(pipenv) run pyment -w -c .pyment.ini webtools
+	$(pipenv) run pyment -w -c .pyment.ini export_as_bookmark
+	$(pipenv) run pyment -w -c .pyment.ini lggr
+
+# darglint
+
+darglint:
+	# Is git always available?
+	git ls-files '*.py' | grep -v ^tests/ | \
+		xargs pipenv run darglint -v 2 -m '{path}:{line}:{obj} ({msg_id}) {msg}'

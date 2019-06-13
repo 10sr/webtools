@@ -1,3 +1,5 @@
+"""Urls for export_as_bookmark app."""
+
 from django.urls import path
 
 from . import views

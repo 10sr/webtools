@@ -1,30 +1,44 @@
-import pprint
+"""View definitions of lggr app."""
+
 import logging
+import pprint
 
 from django.http import (
     HttpRequest,
     HttpResponse,
-    HttpResponseNotFound,
     HttpResponseBadRequest,
+    HttpResponseNotFound,
     HttpResponseRedirect,
 )
-from django.views.decorators.csrf import csrf_exempt
 from django.template import loader
 from django.utils import timezone
 
 from ratelimit.decorators import ratelimit
 
+from django.views.decorators.csrf import csrf_exempt
 
 logger = logging.getLogger(__name__)
 
 
 def index(req: HttpRequest) -> HttpResponse:
+    """
+    Return page to test some requests.
+
+    :param req: Request object
+    :returns: Test page
+    """
     tpl = loader.get_template("lggr/index.html.dtl")
     # https://stackoverflow.com/questions/4591525/is-it-possible-to-pass-query-parameters-via-djangos-url-template-tag
     return HttpResponse(tpl.render({"v1": "value1", "v2": str(timezone.now())}, req))
 
 
 def get(req: HttpRequest) -> HttpResponse:
+    """
+    Log get requests.
+
+    :param req: Request object
+    :returns: Get log
+    """
     request_id = id(req)
     log = f"""Id: {request_id} get/ Requested >>>>>
 req.META:
@@ -46,8 +60,14 @@ Id: {request_id} get/ Requested <<<<<
 # curl -X POST -d @a.txt localhost:7700/webtools/lggr/post
 # TODO: Possible to change key via config?
 @ratelimit(key="header:x-real-ip", rate="1/s", method=ratelimit.UNSAFE, block=True)
-@csrf_exempt
+@csrf_exempt  # type: ignore   # disallow_untyped_decorators
 def post(req: HttpRequest) -> HttpResponse:
+    """
+    Log post requests.
+
+    :param req: Request object
+    :returns: Post log
+    """
     request_id = id(req)
     log = f"""Id: {request_id} post/ Requested >>>>>
 req.META:
