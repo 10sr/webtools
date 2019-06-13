@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "4bd8cd3ab6d877f39ab6dcd6ae96dd5f313455e5e1904b358bdf002b4f7d4262"
+            "sha256": "bb83ad7f40bc6b75cd97b6d0489564071e2ad15ae5ef0ac80ed7f16ed777829f"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,13 +16,6 @@
         ]
     },
     "default": {
-        "darglint": {
-            "hashes": [
-                "sha256:98c3c777c9d0d0aee007cabfc03212528fb5a13ec97ed66f51f4fc5f1d882ddd"
-            ],
-            "index": "pypi",
-            "version": "==0.5.6"
-        },
         "dj-database-url": {
             "hashes": [
                 "sha256:4aeaeb1f573c74835b0686a2b46b85990571159ffc21aa57ecd4d1e1cb334163",
@@ -170,6 +163,13 @@
             ],
             "index": "pypi",
             "version": "==5.0a5"
+        },
+        "darglint": {
+            "hashes": [
+                "sha256:98c3c777c9d0d0aee007cabfc03212528fb5a13ec97ed66f51f4fc5f1d882ddd"
+            ],
+            "index": "pypi",
+            "version": "==0.5.6"
         },
         "idna": {
             "hashes": [

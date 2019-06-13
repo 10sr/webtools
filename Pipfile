@@ -11,6 +11,7 @@ mypy = "*"
 coverage = "*"
 codecov = "*"
 pyment = "*"
+darglint = "*"
 
 [packages]
 django = "*"
@@ -19,7 +20,6 @@ honcho = "*"
 redis = "*"
 dj-database-url = "*"
 toml = "*"
-darglint = "*"
 
 [requires]
 python_version = "3.7"
