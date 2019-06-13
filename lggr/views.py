@@ -12,10 +12,8 @@ from django.http import (
 )
 from django.template import loader
 from django.utils import timezone
-
-from ratelimit.decorators import ratelimit
-
 from django.views.decorators.csrf import csrf_exempt
+from ratelimit.decorators import ratelimit
 
 logger = logging.getLogger(__name__)
 
