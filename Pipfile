@@ -19,6 +19,7 @@ honcho = "*"
 redis = "*"
 dj-database-url = "*"
 toml = "*"
+darglint = "*"
 
 [requires]
 python_version = "3.7"

@@ -112,21 +112,29 @@ isort:
 isort-check:
 	$(pipenv) run isort -rc . -c
 
-# pydocstyle
-
-pydocstyle:
-	$(pipenv) run pydocstyle .
-
-
 # mypy ########################
 
 mypy:
 	$(pipenv) run mypy --config-file .mypy.ini .
 
 
-# pyment ####################
+# docstring ####################
+
+# pydocstyle
+
+pydocstyle:
+	$(pipenv) run pydocstyle .
+
+# pyment
 
 pyment:
 	$(pipenv) run pyment -w -c .pyment.ini webtools
 	$(pipenv) run pyment -w -c .pyment.ini export_as_bookmark
 	$(pipenv) run pyment -w -c .pyment.ini lggr
+
+# darglint
+
+darglint:
+	# Is git always available?
+	git ls-files '*.py' | grep -v ^tests | \
+		xargs pipenv run darglint
