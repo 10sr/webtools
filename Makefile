@@ -11,9 +11,11 @@ python3 := $(pipenv) run python3
 
 start: gunicorn
 
-check: app-test check-docstrings # check-format
+check: app-test check-format check-type check-docstrings
 
 check-format: black-check isort-check
+
+check-type: mypy
 
 check-docstrings: pydocstyle darglint
 
@@ -117,7 +119,7 @@ isort-check:
 # mypy ########################
 
 mypy:
-	$(pipenv) run mypy --config-file .mypy.ini .
+	$(pipenv) run mypy .
 
 
 # docstring ####################
