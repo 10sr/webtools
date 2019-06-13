@@ -1,3 +1,5 @@
+"""Views for webtools rootapp."""
+
 from django.http import (
     HttpRequest,
     HttpResponse,
@@ -10,6 +12,12 @@ app_paths = ["export-as-bookmark", "lggr"]
 
 
 def index(req: HttpRequest) -> HttpResponse:
+    """
+    Return index page.
+
+    :param req: Request object
+    :returns: Root index page
+    """
     # TODO: Print HEAD.txt
     return HttpResponse(
         "\n".join(f"""<p><a href="{path}">{path}</a></p>""" for path in app_paths)

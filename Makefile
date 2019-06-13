@@ -11,9 +11,11 @@ python3 := $(pipenv) run python3
 
 start: gunicorn
 
-check: app-test # check-format
+check: app-test check-docstrings # check-format
 
-check-format: black-check isort-check pydocstyle
+check-format: black-check isort-check
+
+check-docstrings: pydocstyle darglint
 
 
 # Initialize ##################
@@ -112,13 +114,29 @@ isort:
 isort-check:
 	$(pipenv) run isort -rc . -c
 
+# mypy ########################
+
+mypy:
+	$(pipenv) run mypy --config-file .mypy.ini .
+
+
+# docstring ####################
+
 # pydocstyle
 
 pydocstyle:
 	$(pipenv) run pydocstyle .
 
+# pyment
 
-# mypy ########################
+pyment:
+	$(pipenv) run pyment -w -c .pyment.ini webtools
+	$(pipenv) run pyment -w -c .pyment.ini export_as_bookmark
+	$(pipenv) run pyment -w -c .pyment.ini lggr
 
-mypy:
-	$(pipenv) run mypy --config-file .mypy.ini .
+# darglint
+
+darglint:
+	# Is git always available?
+	git ls-files '*.py' | grep -v ^tests/ | \
+		xargs pipenv run darglint -v 2 -m '{path}:{line}:{obj} ({msg_id}) {msg}'
