@@ -136,5 +136,5 @@ pyment:
 
 darglint:
 	# Is git always available?
-	git ls-files '*.py' | grep -v ^tests | \
-		xargs pipenv run darglint
+	git ls-files '*.py' | grep -v ^tests/ | \
+		xargs pipenv run darglint -v 2
