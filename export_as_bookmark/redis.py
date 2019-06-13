@@ -1,7 +1,7 @@
 """Redis."""
 
 
-from typing import Optional, Any, Union
+from typing import Any, Optional, Union
 from urllib.parse import urlparse
 
 import redis
