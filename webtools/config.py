@@ -1,8 +1,8 @@
 # from __future__ import annotations
 
-from typing import Dict, Any
-
 import dataclasses
+
+from typing import Any, Dict
 
 import toml
 
