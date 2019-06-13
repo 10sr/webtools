@@ -57,7 +57,9 @@ Id: {request_id} get/ Requested <<<<<
 
 # curl -X POST -d @a.txt localhost:7700/webtools/lggr/post
 # TODO: Possible to change key via config?
-@ratelimit(key="header:x-real-ip", rate="1/s", method=ratelimit.UNSAFE, block=True)
+@ratelimit(  # type: ignore   # disallow_untyped_decorators
+    key="header:x-real-ip", rate="1/s", method=ratelimit.UNSAFE, block=True
+)
 @csrf_exempt  # type: ignore   # disallow_untyped_decorators
 def post(req: HttpRequest) -> HttpResponse:
     """
