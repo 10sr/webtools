@@ -11,9 +11,11 @@ python3 := $(pipenv) run python3
 
 start: gunicorn
 
-check: app-test # check-format
+check: app-test check-docstrings # check-format
 
-check-format: black-check isort-check pydocstyle
+check-format: black-check isort-check
+
+check-docstrings: pydocstyle darglint
 
 
 # Initialize ##################
