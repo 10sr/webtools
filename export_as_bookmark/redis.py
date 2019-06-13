@@ -21,17 +21,33 @@ class Redis:
     url: str
 
     def __init__(self) -> None:
-        """Raise error."""
+        """
+        Initialize instance.
+
+        This class cannot be instanciated so always raise error when called.
+
+        :raises RuntimeError: Instanciation is not allowed
+        """
         raise RuntimeError("Cannot instanciate")
 
     @classmethod
     def ready(cls, url: str) -> None:
-        """Set configs for redis connection."""
+        """
+        Set configs for redis connection.
+
+        :param url: str: 
+
+        """
         cls.url = url
         return
 
     @classmethod
     def _client(cls) -> redis.Redis:
+        """
+        Return Redis client instance.
+
+        :returns: Redis client instance
+        """
         if cls.__client is None:
             cls.__client = redis.Redis.from_url(cls.url)
         return cls.__client
@@ -39,7 +55,14 @@ class Redis:
     @classmethod
     # Should use Any for kargs?
     def set(cls, k: str, v: bytes, **kargs: Union[int, str]) -> Any:
-        """Set key-value pair."""
+        """
+        Set key-value pair.
+
+        :param k: Key
+        :param v: Value
+        :param **kargs: Additional parameters passed to Redis.set method
+        :returns: Return from Redis.set
+        """
         return cls._client().set(k, v, **kargs)
 
     @classmethod
@@ -48,6 +71,9 @@ class Redis:
         Get value of key.
 
         If key does not eixst or expired, return None.
+
+        :param k: Key
+        :returns: Value of k
         """
         ret = cls._client().get(k)
         assert isinstance(ret, bytes) or ret is None

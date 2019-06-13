@@ -9,7 +9,7 @@ from typing import List
 
 
 class BookmarkExporter:
-    """Export bookmark into Netscape Bookmark file.."""
+    """Export bookmark into Netscape Bookmark file."""
 
     _TEMPLATE = """<!DOCTYPE NETSCAPE-Bookmark-file-1>
 
@@ -31,17 +31,33 @@ class BookmarkExporter:
     urls: List[str]
 
     def __init__(self, urls: List[str]) -> None:
-        """Initialize."""
+        """
+        Initialize.
+
+        :param urls: List of urls
+        """
         self.urls = list(urls)
         return
 
     @classmethod
     def from_lines(cls, urls: str) -> BookmarkExporter:
-        """Create bookmark exporter from list of urls."""
+        """
+        Create bookmark exporter from list of urls.
+
+        :param urls: Newline separated list or urls
+        :returns: BookmarkExporter instance
+
+        """
         return cls([url.strip() for url in urls.split("\n") if url.strip()])
 
     def export(self, name: str) -> str:
-        """Export bookmark file."""
+        """
+        Export bookmark HTML.
+
+        :param name: Folder name
+        :returns: HTML string
+
+        """
         return self._TEMPLATE.format(
             name=name,
             bookmarks="".join(
