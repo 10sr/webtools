@@ -32,6 +32,7 @@ installdeps-dev:
 # Tests ##################
 
 app-test:
+	WEBTOOLS_SETTINGS_TOML=tests/settings_deploy_example.toml $(python3) manage.py check --deploy --fail-level WARNING
 	WEBTOOLS_SETTINGS_TOML=tests/settings.toml $(python3) manage.py makemigrations --dry-run --check
 	WEBTOOLS_SETTINGS_TOML=tests/settings.toml $(pipenv) run coverage run ./manage.py test tests/ --pattern='*.py'
 
