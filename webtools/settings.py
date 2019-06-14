@@ -20,10 +20,8 @@ _c = Config.from_toml(
     os.environ.get("WEBTOOLS_SETTINGS_TOML", "settings.toml"), "webtools"
 )
 
-is_prod = _c.ENV == "prod"
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = not is_prod
+DEBUG = _c.DEBUG
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/

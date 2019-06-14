@@ -13,11 +13,12 @@ import toml
 class Config:
     """Definitions for configurations that loaded from external at runtime."""
 
-    ENV: str
     SECRET_KEY: str
     ALLOWED_HOST: str
     DATABASE_URL: str
     EXPORT_AS_BOOKMARK_REDIS_URL: str
+
+    DEBUG: bool = False
     USE_X_FORWARDED_HOST: bool = False
 
     @classmethod
