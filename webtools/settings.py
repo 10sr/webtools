@@ -16,7 +16,9 @@ import dj_database_url
 
 from .config import Config
 
-_c = Config.from_toml(os.environ.get("WEBTOOLS_SETTINGS_TOML", "settings.toml"))
+_c = Config.from_toml(
+    os.environ.get("WEBTOOLS_SETTINGS_TOML", "settings.toml"), "webtools"
+)
 
 is_prod = _c.ENV == "prod"
 

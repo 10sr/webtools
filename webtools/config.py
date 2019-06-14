@@ -38,13 +38,14 @@ class Config:
         return cls(**args)
 
     @classmethod
-    def from_toml(cls, filepath: str) -> "Config":
+    def from_toml(cls, filepath: str, section: str) -> "Config":
         """
         Set up config from TOML file.
 
         :param filepath: Input TOML file path
+        :param section: Section name in TOML file
         :returns: Config instance
         """
         with open(filepath) as f:
             obj = toml.load(f)
-        return cls.from_dict(obj["webtools"])
+        return cls.from_dict(obj[section])
