@@ -1,17 +1,17 @@
 """Config object."""
 
-# from __future__ import annotations
+from __future__ import annotations
 
 import dataclasses
 
-from typing import Any, Dict
+from typing import Any, Dict, get_type_hints
 
 import toml
 
 
 @dataclasses.dataclass(frozen=True)
 class Config:
-    """Definitions for configurations that loaded from external at runtime."""
+    """Definitions for configurations that will be loaded at runtime."""
 
     SECRET_KEY: str
     ALLOWED_HOST: str
@@ -21,25 +21,30 @@ class Config:
     DEBUG: bool = False
     USE_X_FORWARDED_HOST: bool = False
 
+    def __post_init__(self) -> None:
+        # Explicit type check
+        # When importing `annotations' filed.type is a str of
+        # name of type, not the object
+        types = get_type_hints(self)
+        for field in dataclasses.fields(self):
+            # This will not work for Union types
+            assert isinstance(
+                getattr(self, field.name), types[field.name]
+            ), f"Type check fail: {field.name}"
+        return
+
     @classmethod
-    def from_dict(cls, args: Dict[str, Any]) -> "Config":
+    def from_dict(cls, args: Dict[str, Any]) -> Config:
         """
         Set up config from dict object.
 
         :param args: Dict of configuration names and values
         :returns: Config instance
         """
-        # Check type explicitly
-        for field in dataclasses.fields(cls):
-            if field.name in args:
-                # print(f"{repr(args[field.name])} -- {repr(field.type)}")
-                # When importing `annotations' filed.type is a str of
-                # name of type, not the object
-                assert isinstance(args[field.name], field.type)
         return cls(**args)
 
     @classmethod
-    def from_toml(cls, filepath: str, section: str) -> "Config":
+    def from_toml(cls, filepath: str, section: str) -> Config:
         """
         Set up config from TOML file.
 
