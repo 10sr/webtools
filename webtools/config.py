@@ -22,7 +22,7 @@ class Config:
     USE_X_FORWARDED_HOST: bool = False
 
     def __post_init__(self) -> None:
-        # Explicit type check
+        """Conduct explicit type check."""
         # When importing `annotations' filed.type is a str of
         # name of type, not the object
         types = get_type_hints(self)
