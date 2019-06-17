@@ -21,5 +21,7 @@ after_success:
   - make codecov
 
 notifications:
-  email: 8.slashes@gmail.com
-  on_pull_requests: false
+  email:
+    recipients:
+      - 8.slashes@gmail.com
+    on_pull_requests: false
