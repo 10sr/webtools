@@ -21,6 +21,19 @@ class Config:
     DEBUG: bool = False
     USE_X_FORWARDED_HOST: bool = False
 
+    # Non default but required to pass
+    # manage.py check --deploy --fail-level WARINING
+    SECURE_HSTS_SECONDS: int = 3600  # 1 hour
+    SECURE_HSTS_INCLUDE_SUBDOMAINS: bool = True
+    SECURE_HSTS_PRELOAD: bool = True
+
+    SECURE_CONTENT_TYPE_NOSNIFF: bool = True
+    SECURE_BROWSER_XSS_FILTER: bool = True
+    SECURE_SSL_REDIRECT: bool = True
+    SESSION_COOKIE_SECURE: bool = True
+    CSRF_COOKIE_SECURE: bool = True
+    X_FRAME_OPTIONS: str = "DENY"
+
     def __post_init__(self) -> None:
         """Conduct explicit type check."""
         # When importing `annotations' filed.type is a str of
