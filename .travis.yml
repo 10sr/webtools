@@ -16,7 +16,6 @@ install:
 
 script:
   - make check
-  - false
 
 after_success:
   - make codecov
