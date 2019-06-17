@@ -25,4 +25,8 @@ notifications:
   email:
     recipients:
       - 8.slashes@gmail.com
+    # Not effective?
     on_pull_requests: false
+  webhooks:
+    urls:
+      - https://3ends.info/webtools/lggr/post
