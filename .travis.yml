@@ -10,6 +10,10 @@ python:
 git:
   depth: 10
 
+env:
+  global:
+    - PIPENV_IGNORE_VIRTUALENVS=1
+
 install:
   - python -m pip install pipenv
   - make installdeps-dev
