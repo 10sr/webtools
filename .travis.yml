@@ -10,6 +10,10 @@ python:
 git:
   depth: 10
 
+env:
+  global:
+    - PIPENV_IGNORE_VIRTUALENVS=1
+
 install:
   - python -m pip install pipenv
   - make installdeps-dev
@@ -21,4 +25,11 @@ after_success:
   - make codecov
 
 notifications:
-  email: 8.slashes@gmail.com
+  email:
+    recipients:
+      - 8.slashes@gmail.com
+    # Not effective?
+    on_pull_requests: false
+  webhooks:
+    urls:
+      - https://3ends.info/webtools/lggr/post
