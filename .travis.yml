@@ -22,3 +22,4 @@ after_success:
 
 notifications:
   email: 8.slashes@gmail.com
+  on_pull_requests: false
