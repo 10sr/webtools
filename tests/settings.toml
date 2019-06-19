@@ -1,8 +1,12 @@
 # Do not use this in production!
 [webtools]
-ENV = "test"  # What should this be?
 SECRET_KEY = "fake-key"
 ALLOWED_HOST = "*"
 # This is relative path, for absolute path give four slashes
 DATABASE_URL = "sqlite:///test.sqlite3"
 EXPORT_AS_BOOKMARK_REDIS_URL = "redis://localhost:7799/1"
+
+SECURE_HSTS_SECONDS = 0
+SECURE_SSL_REDIRECT = false
+SESSION_COOKIE_SECURE = false
+CSRF_COOKIE_SECURE = false

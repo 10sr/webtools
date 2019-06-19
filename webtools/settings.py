@@ -20,10 +20,8 @@ _c = Config.from_toml(
     os.environ.get("WEBTOOLS_SETTINGS_TOML", "settings.toml"), "webtools"
 )
 
-is_prod = _c.ENV == "prod"
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = not is_prod
+DEBUG = _c.DEBUG
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -33,6 +31,18 @@ SECRET_KEY = _c.SECRET_KEY
 ALLOWED_HOSTS = [_c.ALLOWED_HOST]
 USE_X_FORWARDED_HOST = _c.USE_X_FORWARDED_HOST
 
+# Security configurations
+
+SECURE_HSTS_SECONDS = _c.SECURE_HSTS_SECONDS
+SECURE_HSTS_INCLUDE_SUBDOMAINS = _c.SECURE_HSTS_INCLUDE_SUBDOMAINS
+SECURE_HSTS_PRELOAD = _c.SECURE_HSTS_PRELOAD
+
+SECURE_CONTENT_TYPE_NOSNIFF = _c.SECURE_CONTENT_TYPE_NOSNIFF
+SECURE_BROWSER_XSS_FILTER = _c.SECURE_BROWSER_XSS_FILTER
+SECURE_SSL_REDIRECT = _c.SECURE_SSL_REDIRECT
+SESSION_COOKIE_SECURE = _c.SESSION_COOKIE_SECURE
+CSRF_COOKIE_SECURE = _c.CSRF_COOKIE_SECURE
+X_FRAME_OPTIONS = _c.X_FRAME_OPTIONS
 
 # Application definition
 
