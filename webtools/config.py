@@ -7,6 +7,7 @@ import dataclasses
 from typing import Any, Dict, get_type_hints
 
 import toml
+import typeguard
 
 
 @dataclasses.dataclass(frozen=True)
@@ -36,15 +37,16 @@ class Config:
 
     def __post_init__(self) -> None:
         """Conduct explicit type check."""
-        # Temporarily disable
-        # # When importing `annotations' filed.type is a str of
-        # # name of type, not the object
-        # types = get_type_hints(self)
-        # for field in dataclasses.fields(self):
-        #     # This will not work for Union types
-        #     assert isinstance(
-        #         getattr(self, field.name), types[field.name]
-        #     ), f"Type check fail: {field.name}"
+        # When importing `annotations' filed.type is a str of
+        # name of type, not the object
+        # This get_type_hints call fails to type-check, but actually
+        # it is acceptable.
+        # > error: Argument 1 to "get_type_hints" has incompatible type "Config"; expected "Callable[..., Any]"
+        types = get_type_hints(self)  # type: ignore
+        for field in dataclasses.fields(self):
+            typeguard.check_type(
+                field.name, getattr(self, field.name), types[field.name]
+            )
         return
 
     @classmethod
