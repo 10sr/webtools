@@ -36,14 +36,15 @@ class Config:
 
     def __post_init__(self) -> None:
         """Conduct explicit type check."""
-        # When importing `annotations' filed.type is a str of
-        # name of type, not the object
-        types = get_type_hints(self)
-        for field in dataclasses.fields(self):
-            # This will not work for Union types
-            assert isinstance(
-                getattr(self, field.name), types[field.name]
-            ), f"Type check fail: {field.name}"
+        # Temporarily disable
+        # # When importing `annotations' filed.type is a str of
+        # # name of type, not the object
+        # types = get_type_hints(self)
+        # for field in dataclasses.fields(self):
+        #     # This will not work for Union types
+        #     assert isinstance(
+        #         getattr(self, field.name), types[field.name]
+        #     ), f"Type check fail: {field.name}"
         return
 
     @classmethod
