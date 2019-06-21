@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import dataclasses
 
-from typing import Any, Dict, get_type_hints
+from typing import Any, Dict, Optional, get_type_hints
 
 import toml
 import typeguard
@@ -35,6 +35,8 @@ class Config:
     CSRF_COOKIE_SECURE: bool = True
     X_FRAME_OPTIONS: str = "DENY"
 
+    WEBTOOLS_REVISION_FILEPATH: Optional[str] = None
+
     def __post_init__(self) -> None:
         """Conduct explicit type check."""
         # When importing `annotations' filed.type is a str of
@@ -42,7 +44,7 @@ class Config:
         # This get_type_hints call fails to type-check, but actually
         # it is acceptable.
         # > error: Argument 1 to "get_type_hints" has incompatible type "Config"; expected "Callable[..., Any]"
-        types = get_type_hints(self)  # type: ignore
+        types = get_type_hints(self, globals())  # type: ignore
         for field in dataclasses.fields(self):
             typeguard.check_type(
                 field.name, getattr(self, field.name), types[field.name]

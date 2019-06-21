@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from typing import Optional
 
 import dj_database_url
 
@@ -125,6 +126,15 @@ STATIC_URL = "/static/"
 
 
 # webtools specific
+
+WEBTOOLS_REVISION_FILEPATH = _c.WEBTOOLS_REVISION_FILEPATH
+WEBTOOLS_REVISION: Optional[str] = None
+try:
+    with open(WEBTOOLS_REVISION_FILEPATH) as f:
+        WEBTOOLS_REVISION = f.read().strip()
+except:
+    pass
+
 
 # Use Redis.from_url
 EXPORT_AS_BOOKMARK_REDIS_URL = _c.EXPORT_AS_BOOKMARK_REDIS_URL
