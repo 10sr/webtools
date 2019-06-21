@@ -35,7 +35,7 @@ class Config:
     CSRF_COOKIE_SECURE: bool = True
     X_FRAME_OPTIONS: str = "DENY"
 
-    WEBTOOLS_REVISION_FILEPATH: Optional[str] = None
+    WEBTOOLS_REVISION_FILEPATH: Optional[str] = "HEAD.txt"
 
     def __post_init__(self) -> None:
         """Conduct explicit type check."""
