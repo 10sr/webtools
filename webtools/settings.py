@@ -131,8 +131,9 @@ STATIC_URL = "/static/"
 WEBTOOLS_REVISION_FILEPATH = _c.WEBTOOLS_REVISION_FILEPATH
 WEBTOOLS_REVISION: Optional[str] = None
 try:
-    with open(WEBTOOLS_REVISION_FILEPATH) as f:
-        WEBTOOLS_REVISION = f.read().strip()
+    if WEBTOOLS_REVISION_FILEPATH is not None:
+        with open(WEBTOOLS_REVISION_FILEPATH) as f:
+            WEBTOOLS_REVISION = f.read().strip()
 except:
     pass
 
