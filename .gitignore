@@ -3,3 +3,4 @@
 .venv/
 /settings.toml
 .coverage
+/HEAD.txt
