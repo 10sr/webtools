@@ -1,7 +1,7 @@
 """Redis."""
 
 
-from typing import Any, Optional, Union
+from typing import Any, Optional, Union, cast
 from urllib.parse import urlparse
 
 import redis
@@ -49,7 +49,7 @@ class Redis:
         :returns: Redis client instance
         """
         if cls.__client is None:
-            cls.__client = redis.Redis.from_url(cls.url)
+            cls.__client = cast(redis.Redis, redis.Redis.from_url(cls.url))
         return cls.__client
 
     @classmethod
