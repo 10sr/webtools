@@ -15,6 +15,7 @@ flake8 = "*"
 flake8-black = "*"
 flake8-isort = "*"
 flake8-docstrings = "*"
+pep8-naming = "*"
 
 [packages]
 django = "*"
