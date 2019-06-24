@@ -13,7 +13,7 @@ start: gunicorn
 
 check: app-test check-format check-type check-docstrings
 
-check-format: black-check isort-check
+check-format: flake8 black-check isort-check
 
 check-type: mypy
 
