@@ -49,15 +49,12 @@ class Redis:
         :returns: Redis client instance
         """
         if cls.__client is None:
-            cls.__client = cast(
-                # Call to untyped function "from_url" of "Redis" in typed context
-                redis.Redis,
-                redis.Redis.from_url(cls.url),  # type: ignore
-            )
+            cls.__client = cast(redis.Redis, redis.Redis.from_url(cls.url))
         return cls.__client
 
     @classmethod
-    def set(cls, k: str, v: bytes, **kargs: Any) -> Any:
+    # Should use Any for kargs?
+    def set(cls, k: str, v: bytes, **kargs: Union[int, str]) -> Any:
         """
         Set key-value pair.
 
