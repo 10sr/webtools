@@ -11,13 +11,11 @@ python3 := $(pipenv) run python3
 
 start: gunicorn
 
-check: app-test check-format check-type check-docstrings
+check: app-test check-format check-type darglint
 
 check-format: flake8
 
 check-type: mypy
-
-check-docstrings: pydocstyle darglint
 
 
 # Initialize ##################
@@ -119,11 +117,6 @@ mypy:
 
 
 # docstring ####################
-
-# pydocstyle
-
-pydocstyle:
-	$(pipenv) run pydocstyle .
 
 # darglint
 
