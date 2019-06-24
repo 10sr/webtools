@@ -11,7 +11,7 @@ python3 := $(pipenv) run python3
 
 start: gunicorn
 
-check: app-test check-format check-type darglint
+check: app-test check-format check-type
 
 check-format: flake8
 
@@ -114,13 +114,3 @@ isort:
 
 mypy:
 	$(pipenv) run mypy .
-
-
-# docstring ####################
-
-# darglint
-
-darglint:
-	# Is git always available?
-	git ls-files '*.py' | grep -v ^tests/ | \
-		xargs pipenv run darglint -v 2 -m '{path}:{line}:{obj} ({msg_id}) {msg}'
