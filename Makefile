@@ -11,13 +11,11 @@ python3 := $(pipenv) run python3
 
 start: gunicorn
 
-check: app-test check-format check-type check-docstrings
+check: app-test check-format check-type
 
-check-format: black-check isort-check
+check-format: flake8
 
 check-type: mypy
-
-check-docstrings: pydocstyle darglint
 
 
 # Initialize ##################
@@ -99,38 +97,20 @@ docker-stop:
 
 # Formatter and Linter ###############
 
+flake8:
+	$(pipenv) run flake8 .
+
 # black
 
 black:
 	$(pipenv) run black .
-
-black-check:
-	$(pipenv) run black --check .
 
 # isort
 
 isort:
 	$(pipenv) run isort -rc .
 
-isort-check:
-	$(pipenv) run isort -rc . -c
-
 # mypy ########################
 
 mypy:
 	$(pipenv) run mypy .
-
-
-# docstring ####################
-
-# pydocstyle
-
-pydocstyle:
-	$(pipenv) run pydocstyle .
-
-# darglint
-
-darglint:
-	# Is git always available?
-	git ls-files '*.py' | grep -v ^tests/ | \
-		xargs pipenv run darglint -v 2 -m '{path}:{line}:{obj} ({msg_id}) {msg}'

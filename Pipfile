@@ -11,6 +11,10 @@ mypy = "*"
 coverage = "*"
 codecov = "*"
 darglint = "*"
+flake8 = "*"
+flake8-black = "*"
+flake8-isort = "*"
+flake8-docstrings = "*"
 
 [packages]
 django = "*"

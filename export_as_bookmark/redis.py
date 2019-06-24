@@ -35,7 +35,7 @@ class Redis:
         """
         Set configs for redis connection.
 
-        :param url: str: 
+        :param url: str:
 
         """
         cls.url = url
@@ -49,12 +49,15 @@ class Redis:
         :returns: Redis client instance
         """
         if cls.__client is None:
-            cls.__client = cast(redis.Redis, redis.Redis.from_url(cls.url))
+            cls.__client = cast(
+                # Call to untyped function "from_url" of "Redis" in typed context
+                redis.Redis,
+                redis.Redis.from_url(cls.url),  # type: ignore
+            )
         return cls.__client
 
     @classmethod
-    # Should use Any for kargs?
-    def set(cls, k: str, v: bytes, **kargs: Union[int, str]) -> Any:
+    def set(cls, k: str, v: bytes, **kargs: Any) -> Any:
         """
         Set key-value pair.
 
