@@ -35,7 +35,7 @@ class Redis:
         """
         Set configs for redis connection.
 
-        :param url: str: 
+        :param url: str:
 
         """
         cls.url = url

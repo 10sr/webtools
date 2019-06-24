@@ -134,7 +134,8 @@ try:
     if WEBTOOLS_REVISION_FILEPATH is not None:
         with open(WEBTOOLS_REVISION_FILEPATH) as f:
             WEBTOOLS_REVISION = f.read().strip()
-except:
+except FileNotFoundError:
+    # TODO: Remove try?
     pass
 
 
