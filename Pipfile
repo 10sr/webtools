@@ -5,7 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 black = "*"
-isort = {extras = ["pyproject"],version = "*"}
+isort = "*"
 pydocstyle = "*"
 mypy = "*"
 coverage = "*"
