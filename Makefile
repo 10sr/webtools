@@ -65,14 +65,9 @@ get_random_secret_key:
 
 # Honcho ################
 
+# honcho_target: Space separated honcho targets, left blank to run all
 honcho:
-	$(pipenv) run honcho start
-
-honcho-redis:
-	$(pipenv) run honcho start redis
-
-honcho-web:
-	$(pipenv) run honcho start web
+	$(pipenv) run honcho start $(honcho_target)
 
 
 # Targets for honcho #######################
