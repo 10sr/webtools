@@ -66,7 +66,7 @@ get_random_secret_key:
 # Honcho ################
 
 honcho:
-	REDIS_PORT=$(REDIS_PORT) $(pipenv) run honcho start
+	$(pipenv) run honcho start
 
 
 # Targets for honcho #######################
