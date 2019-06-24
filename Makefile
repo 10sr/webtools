@@ -13,7 +13,7 @@ start: gunicorn
 
 check: app-test check-format check-type check-docstrings
 
-check-format: flake8 isort-check
+check-format: flake8
 
 check-type: mypy
 
@@ -111,9 +111,6 @@ black:
 
 isort:
 	$(pipenv) run isort -rc .
-
-isort-check:
-	$(pipenv) run isort -rc . -c
 
 # mypy ########################
 
