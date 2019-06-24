@@ -99,6 +99,7 @@ docker-stop:
 # Formatter and Linter ###############
 
 flake8:
+	$(pipenv) run flake8 --version
 	$(pipenv) run flake8 .
 
 # black
