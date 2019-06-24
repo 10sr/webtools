@@ -11,11 +11,7 @@ python3 := $(pipenv) run python3
 
 start: gunicorn
 
-check: app-test check-format check-type
-
-check-format: flake8
-
-check-type: mypy
+check: app-test flake8
 
 
 # Initialize ##################
@@ -109,8 +105,3 @@ black:
 
 isort:
 	$(pipenv) run isort -rc .
-
-# mypy ########################
-
-mypy:
-	$(pipenv) run mypy .
