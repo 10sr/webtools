@@ -68,6 +68,12 @@ get_random_secret_key:
 honcho:
 	$(pipenv) run honcho start
 
+honcho-redis:
+	$(pipenv) run honcho start redis
+
+honcho-web:
+	$(pipenv) run honcho start web
+
 
 # Targets for honcho #######################
 
