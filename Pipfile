@@ -12,6 +12,7 @@ coverage = "*"
 codecov = "*"
 darglint = "*"
 flake8 = "*"
+flake8-black = "*"
 
 [packages]
 django = "*"
