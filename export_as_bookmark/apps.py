@@ -14,5 +14,5 @@ class ExportAsBookmarkConfig(AppConfig):  # type: ignore   # disallow_subclassin
 
     def ready(self) -> None:
         """Initialize app."""
-        Redis.ready(settings.EXPORT_AS_BOOKMARK_REDIS_URL)
+        Redis.get_instance().ready(settings.EXPORT_AS_BOOKMARK_REDIS_URL)
         return

@@ -43,12 +43,14 @@ def post(req: HttpRequest) -> HttpResponse:
     except KeyError:
         return HttpResponseBadRequest("Body not given")
 
+    redis = Redis.get_instance()
+
     request_id = id(req)
     name = f"ExportAsBookmark-{request_id}"
     exporter = BookmarkExporter.from_lines(body)
     exported_bytes = exporter.export(name).encode("utf-8")
     key = sha512(exported_bytes).hexdigest()
-    Redis.set(key, exported_bytes, ex=60)
+    redis.set(key, exported_bytes, ex=60)
     return HttpResponseRedirect(reverse("export_as_bookmark:done", args=(key, name)))
 
 
@@ -77,7 +79,9 @@ def download(req: HttpRequest, id: str, name: str) -> HttpResponse:
     """
     # TODO: Use req.session?
     # https://docs.djangoproject.com/en/2.1/ref/request-response/#django.http.HttpRequest.session
-    val = Redis.get(id)
+    redis = Redis.get_instance()
+
+    val = redis.get(id)
     if val is None:
         return HttpResponseNotFound(f"Content of id {id[:24]} not found. Expired?")
     res = HttpResponse(val.decode("utf-8"))
