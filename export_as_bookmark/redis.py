@@ -72,3 +72,12 @@ class Redis:
         :returns: Value of k
         """
         return self._client.get(k)
+
+    def pttl(self, k: str) -> int:
+        """
+        Get the remaining time to live of a key.
+
+        :param k: Key
+        :returns: TTL in millisec
+        """
+        return self._client.pttl(k)

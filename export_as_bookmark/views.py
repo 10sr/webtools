@@ -63,9 +63,26 @@ def done(req: HttpRequest, id: str, name: str) -> HttpResponse:
     :param name: Bookmark name
     :returns: Download page
     """
+    redis = Redis.get_instance()
+    ttl_millisec = redis.pttl(id)
+    if ttl_millisec >= 0:
+        ttl_display = f"Expire in {ttl_millisec} millisec"
+        expired = False
+    elif ttl_millisec == -1:
+        # Will not happen. raise error?
+        ttl_display = "Never expire"
+        expired = False
+    elif ttl_millisec == -2:
+        ttl_display = "Expired"
+        expired = True
+
     tpl = loader.get_template("export_as_bookmark/done.html.dtl")
-    # TODO: Show expire limit
-    return HttpResponse(tpl.render({"id": id, "name": name}, req))
+    return HttpResponse(
+        tpl.render(
+            {"id": id, "name": name, "ttl_display": ttl_display, "expired": expired},
+            req,
+        )
+    )
 
 
 def download(req: HttpRequest, id: str, name: str) -> HttpResponse:
