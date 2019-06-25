@@ -1,2 +1,4 @@
-ID: {{ id }}<br>
-Right click: <a href="{% url 'export_as_bookmark:download' id name %}">HTML</a>
+<p>ID: {{ id }}<br></p>
+{% if not expired %}<p>Right click: <a href="{% url 'export_as_bookmark:download' id name %}">HTML</a></p>{% endif %}
+<p>{{ ttl_display }}</p>
+
