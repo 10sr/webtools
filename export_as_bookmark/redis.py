@@ -71,6 +71,4 @@ class Redis:
         :param k: Key
         :returns: Value of k
         """
-        ret = self._client.get(k)
-        assert isinstance(ret, bytes) or ret is None
-        return ret
+        return self._client.get(k)
