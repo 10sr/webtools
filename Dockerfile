@@ -27,9 +27,6 @@ RUN mkdir -p .git/objects && git rev-parse HEAD >HEAD.txt && cat HEAD.txt
 
 EXPOSE $WEBTOOLS_PORT
 
-# TODO: Pass via build argument
-#RUN git rev-parse HEAD >git_commit_hash.txt
-
 # Django not work without this!
 ENV PYTHONUNBUFFERED 1
 CMD ["make", "migrate", "gunicorn"]
