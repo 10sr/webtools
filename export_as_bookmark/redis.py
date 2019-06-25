@@ -80,4 +80,5 @@ class Redis:
         :param k: Key
         :returns: TTL in millisec
         """
-        return self._client.pttl(k)
+        # Call to untyped function "pttl" in typed context
+        return self._client.pttl(k)  # type: ignore
