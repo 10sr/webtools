@@ -1,5 +1,6 @@
 # Do not use this in production!
 [webtools]
+DEBUG = true
 SECRET_KEY = "i54q%aiq(olufk#+yjg5e#st1r12%#&_ilm$1*rh_6pn0l^96o"
 ALLOWED_HOST = "*"
 # This is relative path, for absolute path give four slashes
