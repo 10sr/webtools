@@ -37,32 +37,19 @@ class Redis:
 
         return cls.__singleton_instance
 
-    __client: Optional[redis.Redis] = None
+    _client: redis.Redis
     url: str
 
     def ready(self, url: str) -> None:
         """
-        Set configs for redis connection.
+        Initialize redis client..
 
-        :param url: str:
-
+        :param url: Redis URL
         """
         self.url = url
+        # Call to untyped function "from_url" of "Redis" in typed context
+        self._client = redis.Redis.from_url(self.url)  # type: ignore
         return
-
-    def _client(self) -> redis.Redis:
-        """
-        Return Redis client instance.
-
-        :returns: Redis client instance
-        """
-        if self.__client is None:
-            self.__client = cast(
-                # Call to untyped function "from_url" of "Redis" in typed context
-                redis.Redis,
-                redis.Redis.from_url(self.url),  # type: ignore
-            )
-        return self.__client
 
     def set(self, k: str, v: bytes, **kargs: Any) -> Any:
         """
@@ -73,7 +60,7 @@ class Redis:
         :param **kargs: Additional parameters passed to Redis.set method
         :returns: Return from Redis.set
         """
-        return self._client().set(k, v, **kargs)
+        return self._client.set(k, v, **kargs)
 
     def get(self, k: str) -> Optional[bytes]:
         """
@@ -84,6 +71,6 @@ class Redis:
         :param k: Key
         :returns: Value of k
         """
-        ret = self._client().get(k)
+        ret = self._client.get(k)
         assert isinstance(ret, bytes) or ret is None
         return ret
