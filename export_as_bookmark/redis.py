@@ -42,7 +42,7 @@ class Redis:
 
     def ready(self, url: str) -> None:
         """
-        Initialize redis client..
+        Initialize (reset) redis client..
 
         :param url: Redis URL
         """
