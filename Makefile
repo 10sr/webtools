@@ -43,6 +43,7 @@ codecov:
 runserver:
 	$(python3) manage.py runserver "$(WEBTOOLS_HOST):$(WEBTOOLS_PORT)"
 
+# gunicorn cannot serve static files in debug mode
 gunicorn:
 	$(pipenv) run gunicorn \
 		--bind "$(WEBTOOLS_HOST):$(WEBTOOLS_PORT)" \
@@ -56,7 +57,7 @@ gunicorn:
 startapp:
 	$(python3) manage.py $@ $(app) $(directory)
 
-migrate:
+migrate collectstatic:
 	$(python3) manage.py $@
 
 
@@ -72,7 +73,7 @@ honcho:
 
 # Targets for honcho #######################
 
-proc-web: gunicorn
+proc-web: runserver
 
 proc-redis:
 	redis-server --port $(REDIS_PORT)

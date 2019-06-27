@@ -123,7 +123,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = "/static/"
+STATIC_URL = "/webtools/static/"
+
+STATICFILES_DIRS = [os.path.abspath(_c.STATICFILES_DIR)]
+
+STATIC_ROOT = os.path.join(os.path.abspath(_c.STATIC_ROOT_BASE), STATIC_URL.lstrip("/"))
 
 
 # webtools specific

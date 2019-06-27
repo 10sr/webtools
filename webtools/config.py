@@ -21,6 +21,8 @@ class Config:
 
     DEBUG: bool = False
     USE_X_FORWARDED_HOST: bool = False
+    STATICFILES_DIR: str = "static/"
+    STATIC_ROOT_BASE: str = "static_deploy/"
 
     # Non default but required to pass
     # manage.py check --deploy --fail-level WARINING
