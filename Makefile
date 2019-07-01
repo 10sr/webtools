@@ -23,7 +23,7 @@ check-type: mypy
 installdeps: semanticui
 	$(pipenv) install --deploy
 
-installdeps-dev:
+installdeps-dev: semanticui
 	$(pipenv) install --dev --deploy
 
 
