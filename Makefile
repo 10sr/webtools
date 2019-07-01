@@ -30,6 +30,9 @@ installdeps-dev:
 # semantic-ui
 semanticui: Semantic-UI-CSS-2.4.1.tar.gz
 	tar -vxf $^
+	rm -rfv static/semanticui/
+	mkdir -p static
+	cp -rv Semantic-UI-CSS-2.4.1/ static/semanticui/
 
 # https://github.com/Semantic-Org/Semantic-UI-CSS
 Semantic-UI-CSS-2.4.1.tar.gz:
