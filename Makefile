@@ -27,18 +27,10 @@ installdeps-dev: semanticui
 	$(pipenv) install --dev --deploy
 
 
-SEMANTIC_UI_VERSION := 2.4.1
 # semantic-ui
-semanticui: Semantic-UI-CSS-$(SEMANTIC_UI_VERSION).tar.gz
-	tar -vxf $^
-	rm -rfv static/semanticui/
-	mkdir -p static
-	cp -rv Semantic-UI-CSS-$(SEMANTIC_UI_VERSION)/ static/semanticui/
+semanticui:
+	bash ./download_semanticui.sh
 
-# https://github.com/Semantic-Org/Semantic-UI-CSS
-Semantic-UI-CSS-$(SEMANTIC_UI_VERSION).tar.gz:
-	wget https://github.com/Semantic-Org/Semantic-UI-CSS/archive/$(SEMANTIC_UI_VERSION).tar.gz \
-		-O $@
 
 # Tests ##################
 
