@@ -20,12 +20,21 @@ check-type: mypy
 
 # Initialize ##################
 
-installdeps:
+installdeps semanticui:
 	$(pipenv) install --deploy
 
 installdeps-dev:
 	$(pipenv) install --dev --deploy
 
+
+# semantic-ui
+semanticui: Semantic-UI-CSS-2.4.1.tar.gz
+	tar -vxf $^
+
+# https://github.com/Semantic-Org/Semantic-UI-CSS
+Semantic-UI-CSS-2.4.1.tar.gz:
+	wget https://github.com/Semantic-Org/Semantic-UI-CSS/archive/2.4.1.tar.gz \
+		-O $@
 
 # Tests ##################
 
