@@ -15,11 +15,13 @@ RUN pip3 install pipenv==$PIPENV_VERSION_
 
 COPY Pipfile Pipfile.lock ./
 RUN pipenv install --deploy # --system
+COPY download_semanticui.sh ./
+RUN bash ./download_semanticui.sh
 
 COPY webtools webtools
 COPY lggr lggr
 COPY export_as_bookmark export_as_bookmark
-COPY Makefile manage.py ./
+COPY manage.py ./
 
 COPY .git/HEAD .git/
 COPY .git/refs .git/refs
