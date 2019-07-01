@@ -20,7 +20,7 @@ check-type: mypy
 
 # Initialize ##################
 
-installdeps semanticui:
+installdeps: semanticui
 	$(pipenv) install --deploy
 
 installdeps-dev:
