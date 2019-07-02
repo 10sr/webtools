@@ -1,0 +1,8 @@
+{% for path in app_paths %}
+<p><a href="{{path}}">{{path}}</a></p>
+{% endfor %}
+
+<p><a href="{{ repository_url }}">Webtools<a/> Revision: {{ revision }}</p>
+
+{% load static %}
+{% static "semanticui/semantic.css" %}
