@@ -62,8 +62,11 @@ gunicorn:
 startapp:
 	$(python3) manage.py $@ $(app) $(directory)
 
-migrate collectstatic:
+migrate:
 	$(python3) manage.py $@
+
+collectstatic:
+	$(python3) manage.py $@ --clear --no-input --verbosity 2
 
 
 get_random_secret_key:
