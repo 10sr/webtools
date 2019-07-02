@@ -7,4 +7,4 @@
 static_deploy/
 Semantic-UI-CSS-*.tar.gz
 Semantic-UI-CSS-*/
-static/semanticui/
+.smanticui_static/

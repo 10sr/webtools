@@ -21,7 +21,7 @@ class Config:
 
     DEBUG: bool = False
     USE_X_FORWARDED_HOST: bool = False
-    SEMANTICUI_BASE_DIR: str = "static/"
+    SEMANTICUI_BASE_DIR: str = ".smanticui_static/"
     STATIC_ROOT: str = "static_deploy/"
 
     # Non default but required to pass

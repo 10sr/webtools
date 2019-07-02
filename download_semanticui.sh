@@ -5,7 +5,7 @@ set -o pipefail
 SEMANTIC_UI_VERSION=2.4.1
 
 tarball=Semantic-UI-CSS-$SEMANTIC_UI_VERSION.tar.gz
-static_dir=static
+static_dir=.smanticui_static
 
 # https://github.com/Semantic-Org/Semantic-UI-CSS
 wget https://github.com/Semantic-Org/Semantic-UI-CSS/archive/$SEMANTIC_UI_VERSION.tar.gz \
