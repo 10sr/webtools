@@ -22,7 +22,7 @@ class Config:
     DEBUG: bool = False
     USE_X_FORWARDED_HOST: bool = False
     SEMANTICUI_BASE_DIR: str = ".smanticui_static/"
-    STATIC_ROOT: str = "static_deploy/"
+    STATIC_ROOT: str = "static_deploy/webtools/static/"
     STATIC_URL: str = "/webtools/static/"
 
     # Non default but required to pass

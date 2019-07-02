@@ -127,7 +127,7 @@ STATIC_URL = _c.STATIC_URL
 
 STATICFILES_DIRS = [os.path.abspath(_c.SEMANTICUI_BASE_DIR)]
 
-STATIC_ROOT = os.path.join(os.path.abspath(_c.STATIC_ROOT), STATIC_URL.lstrip("/"))
+STATIC_ROOT = os.path.abspath(_c.STATIC_ROOT)
 
 
 # webtools specific
