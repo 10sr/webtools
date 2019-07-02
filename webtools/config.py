@@ -23,6 +23,7 @@ class Config:
     USE_X_FORWARDED_HOST: bool = False
     SEMANTICUI_BASE_DIR: str = ".smanticui_static/"
     STATIC_ROOT: str = "static_deploy/"
+    STATIC_URL: str = "/webtools/static/"
 
     # Non default but required to pass
     # manage.py check --deploy --fail-level WARINING
