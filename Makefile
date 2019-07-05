@@ -20,11 +20,16 @@ check-type: mypy
 
 # Initialize ##################
 
-installdeps:
+installdeps: semanticui
 	$(pipenv) install --deploy
 
-installdeps-dev:
+installdeps-dev: semanticui
 	$(pipenv) install --dev --deploy
+
+
+# semantic-ui
+semanticui:
+	bash ./download_semanticui.sh
 
 
 # Tests ##################
@@ -43,6 +48,7 @@ codecov:
 runserver:
 	$(python3) manage.py runserver "$(WEBTOOLS_HOST):$(WEBTOOLS_PORT)"
 
+# gunicorn cannot serve static files in debug mode
 gunicorn:
 	$(pipenv) run gunicorn \
 		--bind "$(WEBTOOLS_HOST):$(WEBTOOLS_PORT)" \
@@ -59,6 +65,9 @@ startapp:
 migrate:
 	$(python3) manage.py $@
 
+collectstatic:
+	$(python3) manage.py $@ --clear --no-input --verbosity 2
+
 
 get_random_secret_key:
 	$(python3) -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
@@ -72,7 +81,7 @@ honcho:
 
 # Targets for honcho #######################
 
-proc-web: gunicorn
+proc-web: runserver
 
 proc-redis:
 	redis-server --port $(REDIS_PORT)

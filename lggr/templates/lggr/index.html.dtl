@@ -5,3 +5,7 @@
     <p><input type="text" name="note" value="{{ v1 | urlencode }}" /></p>
     <textarea name="body">{{ v2 }}</textarea>
 </form>
+
+
+{% load static %}
+{% static "a.css" %}

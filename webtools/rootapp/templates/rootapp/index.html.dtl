@@ -1,0 +1,18 @@
+{% load static %}
+<head>
+  <link rel="stylesheet" type="text/css" href='{% static "semanticui/semantic.min.css" %}'></link>
+  <script src='{% static "semanticui/semantic.min.js" %}'></script>
+</head>
+
+<div class="ui container">
+  <div class="ui divider"></div>
+
+  <div class="ui vertical menu">
+    {% for path in app_paths %}
+    <a class="item" href="{{path}}">{{path}}</a>
+    {% endfor %}
+  </div>
+
+  <div class="ui divider"></div>
+  <div class="ui divided link list"><a href="{{ repository_url }}">Webtools</a> Revision: {{ revision }}</div>
+</div>

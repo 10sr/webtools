@@ -4,3 +4,7 @@
 /settings.toml
 .coverage
 /HEAD.txt
+static_deploy/
+Semantic-UI-CSS-*.tar.gz
+Semantic-UI-CSS-*/
+.smanticui_static/
