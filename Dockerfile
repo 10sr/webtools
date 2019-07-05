@@ -31,4 +31,4 @@ EXPOSE $WEBTOOLS_PORT
 
 # Django not work without this!
 ENV PYTHONUNBUFFERED 1
-CMD ["make", "migrate", "gunicorn"]
+CMD ["make", "migrate", "collectstatic", "gunicorn"]
