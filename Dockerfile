@@ -21,7 +21,7 @@ RUN bash ./download_semanticui.sh
 COPY webtools webtools
 COPY lggr lggr
 COPY export_as_bookmark export_as_bookmark
-COPY Makefile manage.py ./
+COPY Makefile manage.py settings_insecure.toml ./
 
 COPY .git/HEAD .git/
 COPY .git/refs .git/refs

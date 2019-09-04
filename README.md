@@ -21,7 +21,7 @@ Requirements
 Run Server
 ----------
 
-First, copy `settings_local.toml` to `settings.toml` and edit that file.
+First, copy `settings_insecure.toml` to `settings.toml` and edit that file.
 
     make installdeps
     make honcho
