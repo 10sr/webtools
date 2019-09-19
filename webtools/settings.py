@@ -139,7 +139,7 @@ if _c.USE_S3:
     AWS_S3_OBJECT_PARAMETERS = {"CacheControl": "max-age=86400"}
     AWS_LOCATION = _c.AWS_LOCATION
     AWS_S3_ENDPOINT_URL = _c.AWS_S3_ENDPOINT_URL
-    # AWS_S3_CUSTOM_DOMAIN = _c.AWS_S3_CUSTOM_DOMAIN
+    AWS_S3_CUSTOM_DOMAIN = _c.AWS_S3_CUSTOM_DOMAIN
 else:
     # Path to local file system to put static files
     STATIC_ROOT = os.path.abspath(_c.STATIC_ROOT)
