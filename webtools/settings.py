@@ -141,7 +141,7 @@ if _c.USE_S3:
     AWS_S3_ENDPOINT_URL = _c.AWS_S3_ENDPOINT_URL
     AWS_S3_CUSTOM_DOMAIN = _c.AWS_S3_CUSTOM_DOMAIN
 else:
-    # Path to local file system to put static files
+    # Path to local file system which collectstatic copies static files into
     STATIC_ROOT = os.path.abspath(_c.STATIC_ROOT)
 
 
