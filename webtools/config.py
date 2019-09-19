@@ -34,7 +34,7 @@ class Config:
     AWS_BUCKET_ACL: Optional[str] = "public-read"
     AWS_AUTO_CREATE_BUCKET: bool = True
     AWS_S3_ENDPOINT_URL: Optional[str] = None
-    #AWS_S3_CUSTOM_DOMAIN: Optional[str] = None
+    # AWS_S3_CUSTOM_DOMAIN: Optional[str] = None
     # Local Filesystem
     STATIC_ROOT: str = "static_deploy/webtools/static/"
 
