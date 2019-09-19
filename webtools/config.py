@@ -37,6 +37,7 @@ class Config:
     SESSION_COOKIE_SECURE: bool = True
     CSRF_COOKIE_SECURE: bool = True
     X_FRAME_OPTIONS: str = "DENY"
+    SECURE_REFERRER_POLICY: str = "no-referrer-when-downgrade"
 
     WEBTOOLS_REVISION_FILEPATH: Optional[str] = "HEAD.txt"
 
