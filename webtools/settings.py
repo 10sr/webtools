@@ -128,7 +128,21 @@ STATIC_URL = _c.STATIC_URL
 
 STATICFILES_DIRS = [os.path.abspath(_c.SEMANTICUI_BASE_DIR)]
 
-STATIC_ROOT = os.path.abspath(_c.STATIC_ROOT)
+if _c.USE_S3:
+    STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+    AWS_ACCESS_KEY_ID = _c.AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY = _c.AWS_SECRET_ACCESS_KEY
+    AWS_STORAGE_BUCKET_NAME = _c.AWS_STORAGE_BUCKET_NAME
+    AWS_DEFAULT_ACL = _c.AWS_DEFAULT_ACL
+    AWS_BUCKET_ACL = _c.AWS_BUCKET_ACL
+    AWS_AUTO_CREATE_BUCKET = _c.AWS_AUTO_CREATE_BUCKET
+    AWS_S3_OBJECT_PARAMETERS = {"CacheControl": "max-age=86400"}
+    AWS_LOCATION = _c.AWS_LOCATION
+    AWS_S3_ENDPOINT_URL = _c.AWS_S3_ENDPOINT_URL
+    AWS_S3_CUSTOM_DOMAIN = _c.AWS_S3_CUSTOM_DOMAIN
+else:
+    # Path to local file system which collectstatic copies static files into
+    STATIC_ROOT = os.path.abspath(_c.STATIC_ROOT)
 
 
 # webtools specific

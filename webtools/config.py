@@ -22,8 +22,22 @@ class Config:
     DEBUG: bool = False
     USE_X_FORWARDED_HOST: bool = False
     SEMANTICUI_BASE_DIR: str = ".smanticui_static/"
-    STATIC_ROOT: str = "static_deploy/webtools/static/"
+
+    # Static Configurations
     STATIC_URL: str = "/webtools/static/"
+    USE_S3: bool = False
+    # S3
+    AWS_ACCESS_KEY_ID: Optional[str] = None
+    AWS_SECRET_ACCESS_KEY: Optional[str] = None
+    AWS_STORAGE_BUCKET_NAME: Optional[str] = None
+    AWS_DEFAULT_ACL: Optional[str] = "public-read"
+    AWS_BUCKET_ACL: Optional[str] = "public-read"
+    AWS_AUTO_CREATE_BUCKET: bool = True
+    AWS_LOCATION: Optional[str] = None
+    AWS_S3_ENDPOINT_URL: Optional[str] = None  # Endpoint to upload files
+    AWS_S3_CUSTOM_DOMAIN: Optional[str] = None
+    # Local Filesystem
+    STATIC_ROOT: str = "static_deploy/webtools/static/"
 
     # Non default but required to pass
     # manage.py check --deploy --fail-level WARINING

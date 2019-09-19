@@ -26,6 +26,8 @@ dj-database-url = "*"
 toml = "*"
 django-ratelimit = "*"
 typeguard = "*"
+boto3 = "*"
+django-storages = "*"
 
 [requires]
 python_version = "3.7"
