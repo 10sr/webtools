@@ -14,5 +14,5 @@
   </div>
 
   <div class="ui divider"></div>
-  <div class="ui divided link list"><a href="{{ repository_url }}">Webtools</a> Revision: {{ revision }}</div>
+  <div class="ui right divided link list"><a href="{{ repository_url }}">Webtools</a> Revision: {{ revision }}</div>
 </div>
