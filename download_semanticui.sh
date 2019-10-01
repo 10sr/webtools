@@ -15,3 +15,4 @@ tar -vxf $tarball
 rm -rfv $static_dir/semanticui/
 mkdir -p $static_dir
 cp -rv Semantic-UI-CSS-$SEMANTIC_UI_VERSION/ $static_dir/semanticui/
+rm -rfv $tarball
