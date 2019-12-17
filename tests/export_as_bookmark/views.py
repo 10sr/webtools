@@ -43,3 +43,21 @@ http://yahoo.co.jp
         self.assertEqual(response.status_code, 200)
         redis_mock.return_value.pttl.assert_called_once_with("12345")
         return
+
+    @mock.patch.object(Redis, "get_instance")
+    def test_download(self, redis_mock):
+        redis_mock.return_value.get.return_value = b"hoehoe"
+
+        response = self._request_get("download", ("12345", "export-name"))
+        self.assertEqual(response.status_code, 200)
+        redis_mock.return_value.get.assert_called_once_with("12345")
+        return
+
+    @mock.patch.object(Redis, "get_instance")
+    def test_download_404(self, redis_mock):
+        redis_mock.return_value.get.return_value = None
+
+        response = self._request_get("download", ("12345", "export-name"))
+        self.assertEqual(response.status_code, 404)
+        redis_mock.return_value.get.assert_called_once_with("12345")
+        return
