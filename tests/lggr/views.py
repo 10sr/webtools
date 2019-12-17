@@ -4,6 +4,7 @@ from django.test import TestCase
 from django.urls import reverse
 
 
+# TODO: Supress logger output
 class ViewTests(TestCase):
     def _request_get(self, name, *args, **kargs):
         return self.client.get(reverse(f"lggr:{name}"), *args, **kargs)
