@@ -51,6 +51,7 @@ Id: {request_id} get/ Requested <<<<<
     # logger.warning(f"Id: {request_id} req.GET:")
     # logger.warning(f"Id: {request_id} {pprint.pformat(req.GET.dict())}")
     # logger.warning(f"Id: {request_id} get/ Requested <<<<<")
+    # TODO: Any other way of logging other than warning?
     logger.warning(log)
     return HttpResponse(log, content_type="text/plain")
 
