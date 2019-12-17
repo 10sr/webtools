@@ -1,11 +1,16 @@
 # import unittest
 
+import logging
+
 from django.test import TestCase
 from django.urls import reverse
 
 
-# TODO: Supress logger output
+logging.basicConfig(level=logging.ERROR)
+
+
 class ViewTests(TestCase):
+    """View tests."""
     def _request_get(self, name, *args, **kargs):
         return self.client.get(reverse(f"lggr:{name}"), *args, **kargs)
 
