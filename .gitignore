@@ -1,6 +1,7 @@
 .mypy_cache
 /*.sqlite3
 .venv/
+.tox/
 /settings.toml
 .coverage
 /HEAD.txt
