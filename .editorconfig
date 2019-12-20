@@ -3,3 +3,7 @@ root = true
 [*.{json,js}]
 indent_style = space
 indent_size = 2
+
+[*.dtl]
+emacs_mode = web
+indent_size = 2
