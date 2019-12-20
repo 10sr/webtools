@@ -15,8 +15,8 @@ RUN pip3 install pipenv==$PIPENV_VERSION_
 
 COPY Pipfile Pipfile.lock ./
 RUN pipenv install --deploy # --system
-COPY download_semanticui.sh ./
-RUN bash ./download_semanticui.sh
+COPY download_fomanticui.sh ./
+RUN bash ./download_fomanticui.sh
 
 COPY webtools webtools
 COPY lggr lggr

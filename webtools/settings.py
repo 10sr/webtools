@@ -126,7 +126,7 @@ USE_TZ = True
 
 STATIC_URL = _c.STATIC_URL
 
-STATICFILES_DIRS = [os.path.abspath(_c.SEMANTICUI_BASE_DIR)]
+STATICFILES_DIRS = [os.path.abspath(_c.FOMANTICUI_BASE_DIR)]
 
 if _c.USE_S3:
     STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"

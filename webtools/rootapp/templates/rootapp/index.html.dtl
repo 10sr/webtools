@@ -1,7 +1,7 @@
 {% load static %}
 <head>
-  <link rel="stylesheet" type="text/css" href='{% static "semanticui/semantic.min.css" %}'></link>
-  <script src='{% static "semanticui/semantic.min.js" %}'></script>
+  <link rel="stylesheet" type="text/css" href='{% static "fomanticui/fomantic.min.css" %}'></link>
+  <script src='{% static "fomanticui/fomantic.min.js" %}'></script>
 </head>
 
 <div class="ui container">
