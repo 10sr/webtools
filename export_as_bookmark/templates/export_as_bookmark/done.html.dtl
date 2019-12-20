@@ -1,4 +1,29 @@
-<p>ID: {{ id }}<br></p>
-{% if not expired %}<p>Right click: <a href="{% url 'export_as_bookmark:download' id name %}">HTML</a></p>{% endif %}
-<p>{{ ttl_display }}</p>
+{% extends "export_as_bookmark/_base.html.dtl" %}
 
+{% block content %}
+  <div class="ui divider"></div>
+  <!-- <div class="ui right labeled tiny fluid input">
+       <label class="ui label">ID</label>
+       <input type="text" value="{{ id }}">
+       </div> -->
+
+  <p>
+    ID:
+    {{ id|slice:":32" }}
+  </p>
+
+  {% if not expired %}
+    <p>
+      <div class="ui label">
+        Expire in {{ ttl_millisec }} millisec
+      </div>
+      Right click and Download: <a href="{% url 'export_as_bookmark:download' id name %}">HTML</a>
+    </p>
+  {% else %}
+    <div class="ui label">
+      Expired
+    </div>
+  {% endif %}
+
+  
+{% endblock content %}

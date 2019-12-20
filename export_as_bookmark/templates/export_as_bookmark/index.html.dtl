@@ -1,5 +1,16 @@
-<form action="{% url 'export_as_bookmark:post' %}" method="post">
-    <p><input type="submit" value="Export As Bookmark" /></p>
-    {% csrf_token %}
-    <textarea name="body"></textarea>
-</form>
+{% extends "export_as_bookmark/_base.html.dtl" %}
+
+{% block content %}
+  <div class="ui divider"></div>
+  <div class="ui form">
+    <form action="{% url 'export_as_bookmark:post' %}" method="post">
+      {% csrf_token %}
+      <div class="field">
+        <input class="ui button" type="submit" value="Export As Bookmark" />
+      </div>
+      <div class="field">
+        <textarea rows="20" name="body"></textarea>
+      </div>
+    </form>
+  </div>
+{% endblock content %}

@@ -50,7 +50,7 @@ def post(req: HttpRequest) -> HttpResponse:
     exporter = BookmarkExporter.from_lines(body)
     exported_bytes = exporter.export(name).encode("utf-8")
     key = sha512(exported_bytes).hexdigest()
-    redis.set(key, exported_bytes, ex=60)
+    redis.set(key, exported_bytes, ex=6000)
     return HttpResponseRedirect(reverse("export_as_bookmark:done", args=(key, name)))
 
 
@@ -79,7 +79,13 @@ def done(req: HttpRequest, id: str, name: str) -> HttpResponse:
     tpl = loader.get_template("export_as_bookmark/done.html.dtl")
     return HttpResponse(
         tpl.render(
-            {"id": id, "name": name, "ttl_display": ttl_display, "expired": expired},
+            {
+                "id": id,
+                "name": name,
+                "ttl_millisec": ttl_millisec,
+                "ttl_display": ttl_display,
+                "expired": expired,
+            },
             req,
         )
     )
