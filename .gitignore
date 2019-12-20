@@ -6,6 +6,6 @@
 .coverage
 /HEAD.txt
 static_deploy/
-Fomantic-UI-CSS-*.tar.gz
-Fomantic-UI-CSS-*/
-.fomanticui_static/
+Semantic-UI-CSS-*.tar.gz
+Semantic-UI-CSS-*/
+.smanticui_static/

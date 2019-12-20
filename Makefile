@@ -20,16 +20,16 @@ check-type: mypy
 
 # Initialize ##################
 
-installdeps: fomanticui
+installdeps: semanticui
 	$(pipenv) install --deploy
 
-installdeps-dev: fomanticui
+installdeps-dev: semanticui
 	$(pipenv) install --dev --deploy
 
 
-# fomantic-ui
-fomanticui:
-	bash ./download_fomanticui.sh
+# semantic-ui
+semanticui:
+	bash ./download_semanticui.sh
 
 
 # Tests ##################

@@ -21,7 +21,7 @@ class Config:
 
     DEBUG: bool = False
     USE_X_FORWARDED_HOST: bool = False
-    FOMANTICUI_BASE_DIR: str = ".fomanticui_static/"
+    SEMANTICUI_BASE_DIR: str = ".smanticui_static/"
 
     # Static Configurations
     STATIC_URL: str = "/webtools/static/"
