@@ -1,15 +1,23 @@
 {% load static %}
+<!DOCTYPE html>
 <head>
-  <link rel="stylesheet" type="text/css" href='{% static "semanticui/semantic.min.css" %}'></link>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <link rel="stylesheet" type="text/css" href='{% static "semanticui/semantic.min.css" %}'>
   <script src='{% static "semanticui/semantic.min.js" %}'></script>
 </head>
 
-<div class="ui container">
+<div class="ui text container">
   <div class="ui divider"></div>
+
+  <div class="header">
+    WebTools
+  </div>
 
   <div class="ui vertical menu">
     {% for path in app_paths %}
-    <a class="item" href="{{path}}">{{path}}</a>
+      <a class="item" href="{{path}}">{{path}}</a>
     {% endfor %}
   </div>
 
