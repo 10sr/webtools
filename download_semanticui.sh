@@ -2,17 +2,20 @@
 set -eux
 set -o pipefail
 
-SEMANTIC_UI_VERSION=2.4.1
+FOMANTIC_UI_VERSION=2.8.2
 
-tarball=Semantic-UI-CSS-$SEMANTIC_UI_VERSION.tar.gz
+tarball=Fomantic-UI-CSS-$FOMANTIC_UI_VERSION.tar.gz
 static_dir=.smanticui_static
 
-# https://github.com/Semantic-Org/Semantic-UI-CSS
-wget https://github.com/Semantic-Org/Semantic-UI-CSS/archive/$SEMANTIC_UI_VERSION.tar.gz \
+# https://github.com/fomantic/Fomantic-UI-CSS
+# Fomantic-UI は Semantic-UI への Merge を目指す community fork なので、
+# パスなどは semanticui のものをそのまま使う
+# （ファイル名なども semanticui.js のままになっている）
+wget https://github.com/fomantic/Fomantic-UI-CSS/archive/$FOMANTIC_UI_VERSION.tar.gz \
      -O $tarball
 
 tar -vxf $tarball
 rm -rfv $static_dir/semanticui/
 mkdir -p $static_dir
-cp -rv Semantic-UI-CSS-$SEMANTIC_UI_VERSION/ $static_dir/semanticui/
+cp -rv Fomantic-UI-CSS-$FOMANTIC_UI_VERSION/ $static_dir/semanticui/
 rm -rfv $tarball
