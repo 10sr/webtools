@@ -15,7 +15,7 @@
     WebTools
   </div>
 
-  <div class="ui vertical menu">
+  <div class="ui link list">
     {% for path in app_paths %}
       <a class="item" href="{{path}}">{{path}}</a>
     {% endfor %}
