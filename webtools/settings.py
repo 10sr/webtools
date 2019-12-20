@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     "webtools.rootapp.apps.RootappConfig",
     "export_as_bookmark.apps.ExportAsBookmarkConfig",
     "lggr.apps.LggrConfig",
+    "django.contrib.admindocs",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

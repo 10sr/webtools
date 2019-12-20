@@ -25,5 +25,6 @@ urlpatterns = [
     path(f"{_path}/export-as-bookmark/", include("export_as_bookmark.urls")),
     path(f"{_path}/lggr/", include("lggr.urls")),
     path(f"{_path}/admin/", admin.site.urls),
+    path(f"{_path}/admin/doc/", include("django.contrib.admindocs.urls")),
     path(f"{_path}/", include("webtools.rootapp.urls")),
 ]
