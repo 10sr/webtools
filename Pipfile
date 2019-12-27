@@ -16,6 +16,7 @@ flake8-black = "*"
 flake8-isort = "*"
 flake8-docstrings = "*"
 pep8-naming = "*"
+semver = "*"
 
 [packages]
 django = "==2.2.8"
