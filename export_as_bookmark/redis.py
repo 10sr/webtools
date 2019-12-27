@@ -48,7 +48,7 @@ class Redis:
         """
         self.url = url
         # Call to untyped function "from_url" of "Redis" in typed context
-        self._client = redis.Redis.from_url(self.url)  # type: ignore
+        self._client = redis.Redis.from_url(self.url)
         return
 
     def set(self, k: str, v: bytes, **kargs: Any) -> Any:
