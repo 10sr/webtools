@@ -13,8 +13,18 @@
 </head>
 
 <div class="ui text container">
+  <!-- <div class="ui divider"></div>
+
+       <div class="header">
+       Export as Bookmark
+       </div> -->
+
   {% block content %}
   {% endblock content %}
   <div class="ui divider"></div>
-  <div class="ui right aligned basic segment"><a href="/webtools">Back to /webtools</a></div>
+  <div class="ui right aligned breadcrumb">
+    <a href="/webtools" class="section">webtools</a>
+    <span class="divider">/</span>
+    <a href="{% url 'export_as_bookmark:index' %}" class="section">export-as-bookmarks</a>
+  </div>
 </div>

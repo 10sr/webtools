@@ -2,22 +2,22 @@
 
 {% block content %}
   <div class="ui divider"></div>
-  <!-- <div class="ui right labeled tiny fluid input">
-       <label class="ui label">ID</label>
-       <input type="text" value="{{ id }}">
-       </div> -->
 
-  <p>
-    ID:
-    {{ id|slice:":32" }}
-  </p>
+  <!-- <p>
+       ID:
+       {{ id|slice:":32" }}
+       </p> -->
 
   {% if not expired %}
     <p>
-      <div class="ui label">
-        Expire in {{ ttl_millisec }} millisec
+      <div class="ui labeled button">
+        <div class="ui button">
+          <a href="{% url 'export_as_bookmark:download' id name %}">View or Download</a>
+        </div>
+        <div class="ui basic label">
+          Expire in {{ ttl_millisec }} millisec
+        </div>
       </div>
-      Right click and Download: <a href="{% url 'export_as_bookmark:download' id name %}">HTML</a>
     </p>
   {% else %}
     <div class="ui label">
