@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <link rel="stylesheet" type="text/css" href='{% static "semanticui/semantic.min.css" %}'>
+  <script src='{% static "semanticui/semantic.min.js" %}'></script>
+  <title>
+    {% block title %}
+    {% endblock title %}
+  </title>
+</head>
+
+<div class="ui text container">
+  <!-- <div class="ui divider"></div>
+
+       <div class="header">
+       lggr
+       </div> -->
+
+  {% block content %}
+  {% endblock content %}
+  <div class="ui divider"></div>
+  <div class="ui right aligned breadcrumb">
+    <a href="/webtools" class="section">webtools</a>
+    <span class="divider">/</span>
+    <a href="{% url 'lggr:index' %}" class="section">lggr</a>
+  </div>
+</div>

@@ -1,11 +1,36 @@
-<a href="{% url 'lggr:get' %}?v1={{ v1 | urlencode }}&v2={{ v2 | urlencode }}">get/ with parameters</a>
+{% extends "lggr/_base.html.dtl" %}
 
-<form action="{% url 'lggr:post' %}?getparam1={{ v1 | urlencode }}&getparam2={{ v2 | urlencode }}" method="post">
-    <p><input type="submit" value="Post!" /></p>
-    <p><input type="text" name="note" value="{{ v1 | urlencode }}" /></p>
-    <textarea name="body">{{ v2 }}</textarea>
-</form>
+{% block content %}
+  <div class="ui divider"></div>
 
+  <h4 class="header">
+    GET
+  </h4>
 
-{% load static %}
-{% static "a.css" %}
+  <div class="ui small button">
+    <a href="{% url 'lggr:get' %}?v1={{ v1 | urlencode }}&v2={{ v2 | urlencode }}">get/ with parameters</a>
+  </div>
+
+  <h4 class="header">
+    POST
+  </h4>
+
+  <div class="ui form">
+    <form action="{% url 'lggr:post' %}?getparam1={{ v1 | urlencode }}&getparam2={{ v2 | urlencode }}" method="post">
+      <div class="field">
+        <input class="ui small button" type="submit" value="Post Data" />
+      </div>
+
+      <div class="field">
+        <label>note</label>
+        <input type="text" name="note" value="{{ v1 | urlencode }}" />
+      </div>
+
+      <div class="field">
+        <label>body</label>
+        <textarea rows="5" name="body">{{ v2 }}</textarea>
+      </div>
+    </form>
+  </div>
+
+{% endblock content %}
