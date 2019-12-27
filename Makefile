@@ -18,6 +18,11 @@ check-format: flake8
 check-type: mypy
 
 
+# Repository meta ###########################
+
+release:
+	$(pipenv) run meta/tag_next_release.py
+
 # Initialize ##################
 
 installdeps: semanticui
@@ -125,3 +130,5 @@ isort:
 
 mypy:
 	$(pipenv) run mypy .
+
+
