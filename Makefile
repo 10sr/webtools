@@ -130,5 +130,6 @@ isort:
 
 mypy:
 	$(pipenv) run mypy .
+	$(pipenv) run mypy meta/*.py
 
 
