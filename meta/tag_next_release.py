@@ -4,11 +4,19 @@
 
 from __future__ import annotations
 
+import enum
 import re
 import subprocess
 
 import click
 import semver
+
+
+class ReleaseTarget(enum.Enum):
+    """Release target type."""
+    MAJOR = enum.auto()
+    MINOR = enum.auto()
+    PATCH = enum.auto()
 
 
 class Release:
@@ -41,7 +49,7 @@ class Release:
         """
         return f'Release(version="v{str(self.__semver)}")'
 
-    def next(self, target: str) -> Release:
+    def next(self, target: ReleaseTarget) -> Release:
         """
         Return next release.
 
@@ -50,11 +58,11 @@ class Release:
         :raises Exception: Unknown target type
         """
         next_semver: semver.VersionInfo
-        if target == "major":
+        if target == ReleaseTarget.MAJOR:
             next_semver = self.__semver.bump_major()
-        elif target == "minor":
+        elif target == ReleaseTarget.MINOR:
             next_semver = self.__semver.bump_minor()
-        elif target == "patch":
+        elif target == ReleaseTarget.PATCH:
             next_semver = self.__semver.bump_patch()
         else:
             raise Exception(f"Unknown target {target}")
@@ -74,7 +82,7 @@ def get_latest_release() -> Release:
     return Release(tag)
 
 
-def tag_release(release: Release):
+def tag_release(release: Release) -> None:
     """
     Add release tag.
 
@@ -89,10 +97,10 @@ def tag_release(release: Release):
 
 @click.command()
 @click.option("--dryrun", is_flag=True)
-@click.option("--major", "target", flag_value="major")
-@click.option("--minor", "target", flag_value="minor")
-@click.option("--patch", "target", flag_value="patch", default=True)
-def main(dryrun: bool, target: str):
+@click.option("--major", "target", flag_value=ReleaseTarget.MAJOR)
+@click.option("--minor", "target", flag_value=ReleaseTarget.MINOR)
+@click.option("--patch", "target", flag_value=ReleaseTarget.PATCH, default=True)
+def main(dryrun: bool, target: ReleaseTarget) -> None:
     """
     tag_next_release entrypoint.
 
