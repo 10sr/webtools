@@ -79,7 +79,7 @@ get_random_secret_key:
 
 # Honcho ################
 
-# honcho_target: Space separated honcho targets, left blank to run all
+# honcho_target: Space separated honcho targets,  leave blank to run all
 honcho:
 	$(pipenv) run honcho start $(honcho_target)
 
