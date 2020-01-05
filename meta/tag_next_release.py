@@ -14,6 +14,7 @@ import semver
 
 class ReleaseTarget(enum.Enum):
     """Release target type."""
+
     MAJOR = enum.auto()
     MINOR = enum.auto()
     PATCH = enum.auto()
