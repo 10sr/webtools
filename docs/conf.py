@@ -22,8 +22,10 @@ os.environ["WEBTOOLS_SETTINGS_TOML"] = "../settings_insecure.toml"
 # -- Project information -----------------------------------------------------
 
 project = 'webtools'
-copyright = '2020, Author'
-author = 'Author'
+copyright = '2020, 10sr'
+author = '10sr'
+
+import webtools
 
 
 # -- General configuration ---------------------------------------------------
@@ -33,6 +35,7 @@ author = 'Author'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.autosummary',
     'sphinx.ext.viewcode',
     'sphinx.ext.todo',
 ]
@@ -67,6 +70,8 @@ html_static_path = ['_static']
 
 
 # -- Extension configuration -------------------------------------------------
+
+autosummary_generate = True
 
 # -- Options for todo extension ----------------------------------------------
 

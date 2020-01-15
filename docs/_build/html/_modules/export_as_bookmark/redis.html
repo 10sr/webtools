@@ -43,7 +43,7 @@
 
 <span class="c1"># TODO: Use costum storage system?</span>
 <span class="c1"># https://docs.djangoproject.com/en/2.2/howto/custom-file-storage/</span>
-<div class="viewcode-block" id="Redis"><a class="viewcode-back" href="../../export_as_bookmark.html#export_as_bookmark.redis.Redis">[docs]</a><span class="k">class</span> <span class="nc">Redis</span><span class="p">:</span>
+<div class="viewcode-block" id="Redis"><a class="viewcode-back" href="../../export_as_bookmark.redis.html#export_as_bookmark.redis.Redis">[docs]</a><span class="k">class</span> <span class="nc">Redis</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Communicate with redis server.&quot;&quot;&quot;</span>
 
     <span class="n">__singleton_instance</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">Redis</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
@@ -58,7 +58,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Cannot initialize via Constructor&quot;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Redis.get_instance"><a class="viewcode-back" href="../../export_as_bookmark.html#export_as_bookmark.redis.Redis.get_instance">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Redis.get_instance"><a class="viewcode-back" href="../../export_as_bookmark.redis.html#export_as_bookmark.redis.Redis.get_instance">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">get_instance</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Redis</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get Redis instance.</span>
@@ -73,7 +73,7 @@
     <span class="n">_client</span><span class="p">:</span> <span class="n">redis</span><span class="o">.</span><span class="n">Redis</span>
     <span class="n">url</span><span class="p">:</span> <span class="nb">str</span>
 
-<div class="viewcode-block" id="Redis.ready"><a class="viewcode-back" href="../../export_as_bookmark.html#export_as_bookmark.redis.Redis.ready">[docs]</a>    <span class="k">def</span> <span class="nf">ready</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="Redis.ready"><a class="viewcode-back" href="../../export_as_bookmark.redis.html#export_as_bookmark.redis.Redis.ready">[docs]</a>    <span class="k">def</span> <span class="nf">ready</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize (reset) redis client..</span>
 
@@ -84,7 +84,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="o">=</span> <span class="n">redis</span><span class="o">.</span><span class="n">Redis</span><span class="o">.</span><span class="n">from_url</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
         <span class="k">return</span></div>
 
-<div class="viewcode-block" id="Redis.set"><a class="viewcode-back" href="../../export_as_bookmark.html#export_as_bookmark.redis.Redis.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<div class="viewcode-block" id="Redis.set"><a class="viewcode-back" href="../../export_as_bookmark.redis.html#export_as_bookmark.redis.Redis.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set key-value pair.</span>
 
@@ -95,7 +95,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Redis.get"><a class="viewcode-back" href="../../export_as_bookmark.html#export_as_bookmark.redis.Redis.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bytes</span><span class="p">]:</span>
+<div class="viewcode-block" id="Redis.get"><a class="viewcode-back" href="../../export_as_bookmark.redis.html#export_as_bookmark.redis.Redis.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bytes</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get value of key.</span>
 
@@ -106,7 +106,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Redis.pttl"><a class="viewcode-back" href="../../export_as_bookmark.html#export_as_bookmark.redis.Redis.pttl">[docs]</a>    <span class="k">def</span> <span class="nf">pttl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<div class="viewcode-block" id="Redis.pttl"><a class="viewcode-back" href="../../export_as_bookmark.redis.html#export_as_bookmark.redis.Redis.pttl">[docs]</a>    <span class="k">def</span> <span class="nf">pttl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the remaining time to live of a key.</span>
 
@@ -174,7 +174,7 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020, Author.
+      &copy;2020, 10sr.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>

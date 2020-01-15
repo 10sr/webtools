@@ -43,7 +43,7 @@
 <span class="kn">import</span> <span class="nn">typeguard</span>
 
 
-<div class="viewcode-block" id="Config"><a class="viewcode-back" href="../../webtools.html#webtools.config.Config">[docs]</a><span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="viewcode-block" id="Config"><a class="viewcode-back" href="../../webtools.config.html#webtools.config.Config">[docs]</a><span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Definitions for configurations that will be loaded at runtime.&quot;&quot;&quot;</span>
 
@@ -102,7 +102,7 @@
             <span class="p">)</span>
         <span class="k">return</span>
 
-<div class="viewcode-block" id="Config.from_dict"><a class="viewcode-back" href="../../webtools.html#webtools.config.Config.from_dict">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Config.from_dict"><a class="viewcode-back" href="../../webtools.config.html#webtools.config.Config.from_dict">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_dict</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Config</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set up config from dict object.</span>
@@ -112,7 +112,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Config.from_toml"><a class="viewcode-back" href="../../webtools.html#webtools.config.Config.from_toml">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Config.from_toml"><a class="viewcode-back" href="../../webtools.config.html#webtools.config.Config.from_toml">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_toml</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">section</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Config</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set up config from TOML file.</span>
@@ -183,7 +183,7 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020, Author.
+      &copy;2020, 10sr.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>

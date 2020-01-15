@@ -32,8 +32,86 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="export-as-bookmark-redis-module">
-<h1>export_as_bookmark.redis module<a class="headerlink" href="#export-as-bookmark-redis-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-export_as_bookmark.redis">
+<span id="export-as-bookmark-redis-module"></span><h1>export_as_bookmark.redis module<a class="headerlink" href="#module-export_as_bookmark.redis" title="Permalink to this headline">¶</a></h1>
+<p>Redis.</p>
+<dl class="class">
+<dt id="export_as_bookmark.redis.Redis">
+<em class="property">class </em><code class="sig-prename descclassname">export_as_bookmark.redis.</code><code class="sig-name descname">Redis</code><a class="reference internal" href="_modules/export_as_bookmark/redis.html#Redis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#export_as_bookmark.redis.Redis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Communicate with redis server.</p>
+<dl class="method">
+<dt id="export_as_bookmark.redis.Redis.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">k: str</em><span class="sig-paren">)</span> &#x2192; Optional[bytes]<a class="reference internal" href="_modules/export_as_bookmark/redis.html#Redis.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#export_as_bookmark.redis.Redis.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get value of key.</p>
+<p>If key does not eixst or expired, return None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>k</strong> – Key</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Value of k</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="export_as_bookmark.redis.Redis.get_instance">
+<em class="property">classmethod </em><code class="sig-name descname">get_instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; export_as_bookmark.redis.Redis<a class="reference internal" href="_modules/export_as_bookmark/redis.html#Redis.get_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#export_as_bookmark.redis.Redis.get_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Redis instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="export_as_bookmark.redis.Redis.pttl">
+<code class="sig-name descname">pttl</code><span class="sig-paren">(</span><em class="sig-param">k: str</em><span class="sig-paren">)</span> &#x2192; int<a class="reference internal" href="_modules/export_as_bookmark/redis.html#Redis.pttl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#export_as_bookmark.redis.Redis.pttl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the remaining time to live of a key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>k</strong> – Key</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>TTL in millisec</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="export_as_bookmark.redis.Redis.ready">
+<code class="sig-name descname">ready</code><span class="sig-paren">(</span><em class="sig-param">url: str</em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="_modules/export_as_bookmark/redis.html#Redis.ready"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#export_as_bookmark.redis.Redis.ready" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize (reset) redis client..</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>url</strong> – Redis URL</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="export_as_bookmark.redis.Redis.set">
+<code class="sig-name descname">set</code><span class="sig-paren">(</span><em class="sig-param">k: str</em>, <em class="sig-param">v: bytes</em>, <em class="sig-param">**kargs: Any</em><span class="sig-paren">)</span> &#x2192; Any<a class="reference internal" href="_modules/export_as_bookmark/redis.html#Redis.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#export_as_bookmark.redis.Redis.set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set key-value pair.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> – Key</p></li>
+<li><p><strong>v</strong> – Value</p></li>
+<li><p><strong>**kargs</strong> – <p>Additional parameters passed to Redis.set method</p>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Return from Redis.set</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
@@ -67,7 +145,7 @@
 <li class="toctree-l3"><a class="reference internal" href="export_as_bookmark.views.html">export_as_bookmark.views module</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="export_as_bookmark.html#module-contents">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="export_as_bookmark.html#module-export_as_bookmark">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="lggr.html">lggr package</a></li>
@@ -110,7 +188,7 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020, Author.
+      &copy;2020, 10sr.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>

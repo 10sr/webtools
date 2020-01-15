@@ -39,13 +39,13 @@
 <span class="kn">from</span> <span class="nn">.redis</span> <span class="kn">import</span> <span class="n">Redis</span>
 
 
-<div class="viewcode-block" id="ExportAsBookmarkConfig"><a class="viewcode-back" href="../../export_as_bookmark.html#export_as_bookmark.apps.ExportAsBookmarkConfig">[docs]</a><span class="k">class</span> <span class="nc">ExportAsBookmarkConfig</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">):</span>  <span class="c1"># type: ignore   # disallow_subclassing_any</span>
+<div class="viewcode-block" id="ExportAsBookmarkConfig"><a class="viewcode-back" href="../../export_as_bookmark.apps.html#export_as_bookmark.apps.ExportAsBookmarkConfig">[docs]</a><span class="k">class</span> <span class="nc">ExportAsBookmarkConfig</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">):</span>  <span class="c1"># type: ignore   # disallow_subclassing_any</span>
     <span class="sd">&quot;&quot;&quot;export_as_bookmark app definition.&quot;&quot;&quot;</span>
 
     <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;export_as_bookmark&quot;</span>
     <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;export_as_bookmark&quot;</span>
 
-<div class="viewcode-block" id="ExportAsBookmarkConfig.ready"><a class="viewcode-back" href="../../export_as_bookmark.html#export_as_bookmark.apps.ExportAsBookmarkConfig.ready">[docs]</a>    <span class="k">def</span> <span class="nf">ready</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="ExportAsBookmarkConfig.ready"><a class="viewcode-back" href="../../export_as_bookmark.apps.html#export_as_bookmark.apps.ExportAsBookmarkConfig.ready">[docs]</a>    <span class="k">def</span> <span class="nf">ready</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Initialize app.&quot;&quot;&quot;</span>
         <span class="n">Redis</span><span class="o">.</span><span class="n">get_instance</span><span class="p">()</span><span class="o">.</span><span class="n">ready</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">EXPORT_AS_BOOKMARK_REDIS_URL</span><span class="p">)</span>
         <span class="k">return</span></div></div>
@@ -108,7 +108,7 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020, Author.
+      &copy;2020, 10sr.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>

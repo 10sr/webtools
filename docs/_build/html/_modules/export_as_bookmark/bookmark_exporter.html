@@ -41,7 +41,7 @@
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
 
-<div class="viewcode-block" id="BookmarkExporter"><a class="viewcode-back" href="../../export_as_bookmark.html#export_as_bookmark.bookmark_exporter.BookmarkExporter">[docs]</a><span class="k">class</span> <span class="nc">BookmarkExporter</span><span class="p">:</span>
+<div class="viewcode-block" id="BookmarkExporter"><a class="viewcode-back" href="../../export_as_bookmark.bookmark_exporter.html#export_as_bookmark.bookmark_exporter.BookmarkExporter">[docs]</a><span class="k">class</span> <span class="nc">BookmarkExporter</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Export bookmark into Netscape Bookmark file.&quot;&quot;&quot;</span>
 
     <span class="n">_TEMPLATE</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;&lt;!DOCTYPE NETSCAPE-Bookmark-file-1&gt;</span>
@@ -72,7 +72,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">urls</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">urls</span><span class="p">)</span>
         <span class="k">return</span>
 
-<div class="viewcode-block" id="BookmarkExporter.from_lines"><a class="viewcode-back" href="../../export_as_bookmark.html#export_as_bookmark.bookmark_exporter.BookmarkExporter.from_lines">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="BookmarkExporter.from_lines"><a class="viewcode-back" href="../../export_as_bookmark.bookmark_exporter.html#export_as_bookmark.bookmark_exporter.BookmarkExporter.from_lines">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_lines</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">urls</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BookmarkExporter</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create bookmark exporter from list of urls.</span>
@@ -83,7 +83,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="p">([</span><span class="n">url</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">url</span><span class="o">.</span><span class="n">strip</span><span class="p">()])</span></div>
 
-<div class="viewcode-block" id="BookmarkExporter.export"><a class="viewcode-back" href="../../export_as_bookmark.html#export_as_bookmark.bookmark_exporter.BookmarkExporter.export">[docs]</a>    <span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="BookmarkExporter.export"><a class="viewcode-back" href="../../export_as_bookmark.bookmark_exporter.html#export_as_bookmark.bookmark_exporter.BookmarkExporter.export">[docs]</a>    <span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Export bookmark HTML.</span>
 
@@ -157,7 +157,7 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020, Author.
+      &copy;2020, 10sr.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>

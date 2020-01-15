@@ -32,8 +32,38 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="webtools-urls-module">
-<h1>webtools.urls module<a class="headerlink" href="#webtools-urls-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-webtools.urls">
+<span id="webtools-urls-module"></span><h1>webtools.urls module<a class="headerlink" href="#module-webtools.urls" title="Permalink to this headline">¶</a></h1>
+<p>webtools URL Configuration.</p>
+<dl class="simple">
+<dt>The <cite>urlpatterns</cite> list routes URLs to views. For more information please see:</dt><dd><p><a class="reference external" href="https://docs.djangoproject.com/en/2.2/topics/http/urls/">https://docs.djangoproject.com/en/2.2/topics/http/urls/</a></p>
+</dd>
+</dl>
+<p>Examples:
+Function views</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Add an import:  from my_app import views</p></li>
+<li><p>Add a URL to urlpatterns:  path(‘’, views.home, name=’home’)</p></li>
+</ol>
+</div></blockquote>
+<dl class="simple">
+<dt>Class-based views</dt><dd><ol class="arabic simple">
+<li><p>Add an import:  from other_app.views import Home</p></li>
+<li><p>Add a URL to urlpatterns:  path(‘’, Home.as_view(), name=’home’)</p></li>
+</ol>
+</dd>
+<dt>Including another URLconf</dt><dd><ol class="arabic simple">
+<li><p>Import the include() function: from django.urls import include, path</p></li>
+<li><p>Add a URL to urlpatterns:  path(‘blog/’, include(‘blog.urls’))</p></li>
+</ol>
+</dd>
+</dl>
+<dl class="function">
+<dt id="webtools.urls.path">
+<code class="sig-prename descclassname">webtools.urls.</code><code class="sig-name descname">path</code><span class="sig-paren">(</span><em class="sig-param">route</em>, <em class="sig-param">view</em>, <em class="sig-param">kwargs=None</em>, <em class="sig-param">name=None</em>, <em class="sig-param">*</em>, <em class="sig-param">Pattern=&lt;class 'django.urls.resolvers.RoutePattern'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#webtools.urls.path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 
 
@@ -68,7 +98,7 @@
 <li class="toctree-l3"><a class="reference internal" href="webtools.wsgi.html">webtools.wsgi module</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="webtools.html#module-contents">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webtools.html#module-webtools">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -107,7 +137,7 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020, Author.
+      &copy;2020, 10sr.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>

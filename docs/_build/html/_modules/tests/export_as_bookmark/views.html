@@ -40,7 +40,7 @@
 <span class="kn">from</span> <span class="nn">export_as_bookmark.redis</span> <span class="kn">import</span> <span class="n">Redis</span>
 
 
-<div class="viewcode-block" id="ViewTests"><a class="viewcode-back" href="../../../tests.export_as_bookmark.html#tests.export_as_bookmark.views.ViewTests">[docs]</a><span class="k">class</span> <span class="nc">ViewTests</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="ViewTests"><a class="viewcode-back" href="../../../tests.export_as_bookmark.views.html#tests.export_as_bookmark.views.ViewTests">[docs]</a><span class="k">class</span> <span class="nc">ViewTests</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;View test.&quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="ViewTests._request_get"><a class="viewcode-back" href="../../../tests.export_as_bookmark.html#tests.export_as_bookmark.views.ViewTests._request_get">[docs]</a>    <span class="k">def</span> <span class="nf">_request_get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">reverse_args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">):</span>
@@ -53,12 +53,12 @@
             <span class="n">reverse</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;export_as_bookmark:</span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">reverse_args</span><span class="p">),</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="ViewTests.test_index"><a class="viewcode-back" href="../../../tests.export_as_bookmark.html#tests.export_as_bookmark.views.ViewTests.test_index">[docs]</a>    <span class="k">def</span> <span class="nf">test_index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ViewTests.test_index"><a class="viewcode-back" href="../../../tests.export_as_bookmark.views.html#tests.export_as_bookmark.views.ViewTests.test_index">[docs]</a>    <span class="k">def</span> <span class="nf">test_index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_get</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
         <span class="k">return</span></div>
 
-<div class="viewcode-block" id="ViewTests.test_post"><a class="viewcode-back" href="../../../tests.export_as_bookmark.html#tests.export_as_bookmark.views.ViewTests.test_post">[docs]</a>    <span class="nd">@mock</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">object</span><span class="p">(</span><span class="n">Redis</span><span class="p">,</span> <span class="s2">&quot;get_instance&quot;</span><span class="p">)</span>
+<div class="viewcode-block" id="ViewTests.test_post"><a class="viewcode-back" href="../../../tests.export_as_bookmark.views.html#tests.export_as_bookmark.views.ViewTests.test_post">[docs]</a>    <span class="nd">@mock</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">object</span><span class="p">(</span><span class="n">Redis</span><span class="p">,</span> <span class="s2">&quot;get_instance&quot;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">test_post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">redis_mock</span><span class="p">):</span>
         <span class="n">body</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;http://google.com</span>
 <span class="s2">http://yahoo.co.jp</span>
@@ -68,7 +68,7 @@
         <span class="n">redis_mock</span><span class="o">.</span><span class="n">return_value</span><span class="o">.</span><span class="n">set</span><span class="o">.</span><span class="n">assert_called_once</span><span class="p">()</span>
         <span class="k">return</span></div>
 
-<div class="viewcode-block" id="ViewTests.test_done"><a class="viewcode-back" href="../../../tests.export_as_bookmark.html#tests.export_as_bookmark.views.ViewTests.test_done">[docs]</a>    <span class="nd">@mock</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">object</span><span class="p">(</span><span class="n">Redis</span><span class="p">,</span> <span class="s2">&quot;get_instance&quot;</span><span class="p">)</span>
+<div class="viewcode-block" id="ViewTests.test_done"><a class="viewcode-back" href="../../../tests.export_as_bookmark.views.html#tests.export_as_bookmark.views.ViewTests.test_done">[docs]</a>    <span class="nd">@mock</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">object</span><span class="p">(</span><span class="n">Redis</span><span class="p">,</span> <span class="s2">&quot;get_instance&quot;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">test_done</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">redis_mock</span><span class="p">):</span>
         <span class="n">redis_mock</span><span class="o">.</span><span class="n">return_value</span><span class="o">.</span><span class="n">pttl</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="mi">1</span>
 
@@ -77,7 +77,7 @@
         <span class="n">redis_mock</span><span class="o">.</span><span class="n">return_value</span><span class="o">.</span><span class="n">pttl</span><span class="o">.</span><span class="n">assert_called_once_with</span><span class="p">(</span><span class="s2">&quot;12345&quot;</span><span class="p">)</span>
         <span class="k">return</span></div>
 
-<div class="viewcode-block" id="ViewTests.test_download"><a class="viewcode-back" href="../../../tests.export_as_bookmark.html#tests.export_as_bookmark.views.ViewTests.test_download">[docs]</a>    <span class="nd">@mock</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">object</span><span class="p">(</span><span class="n">Redis</span><span class="p">,</span> <span class="s2">&quot;get_instance&quot;</span><span class="p">)</span>
+<div class="viewcode-block" id="ViewTests.test_download"><a class="viewcode-back" href="../../../tests.export_as_bookmark.views.html#tests.export_as_bookmark.views.ViewTests.test_download">[docs]</a>    <span class="nd">@mock</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">object</span><span class="p">(</span><span class="n">Redis</span><span class="p">,</span> <span class="s2">&quot;get_instance&quot;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">test_download</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">redis_mock</span><span class="p">):</span>
         <span class="n">redis_mock</span><span class="o">.</span><span class="n">return_value</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;hoehoe&quot;</span>
 
@@ -86,7 +86,7 @@
         <span class="n">redis_mock</span><span class="o">.</span><span class="n">return_value</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">assert_called_once_with</span><span class="p">(</span><span class="s2">&quot;12345&quot;</span><span class="p">)</span>
         <span class="k">return</span></div>
 
-<div class="viewcode-block" id="ViewTests.test_download_404"><a class="viewcode-back" href="../../../tests.export_as_bookmark.html#tests.export_as_bookmark.views.ViewTests.test_download_404">[docs]</a>    <span class="nd">@mock</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">object</span><span class="p">(</span><span class="n">Redis</span><span class="p">,</span> <span class="s2">&quot;get_instance&quot;</span><span class="p">)</span>
+<div class="viewcode-block" id="ViewTests.test_download_404"><a class="viewcode-back" href="../../../tests.export_as_bookmark.views.html#tests.export_as_bookmark.views.ViewTests.test_download_404">[docs]</a>    <span class="nd">@mock</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">object</span><span class="p">(</span><span class="n">Redis</span><span class="p">,</span> <span class="s2">&quot;get_instance&quot;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">test_download_404</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">redis_mock</span><span class="p">):</span>
         <span class="n">redis_mock</span><span class="o">.</span><span class="n">return_value</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="kc">None</span>
 
@@ -153,7 +153,7 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020, Author.
+      &copy;2020, 10sr.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
