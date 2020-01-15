@@ -12,8 +12,6 @@ Welcome to webtools's documentation!
 
    export_as_bookmark
    lggr
-   manage
-   tests
    webtools
 
 
