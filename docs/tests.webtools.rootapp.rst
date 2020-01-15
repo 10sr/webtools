@@ -4,14 +4,9 @@ tests.webtools.rootapp package
 Submodules
 ----------
 
-tests.webtools.rootapp.views module
------------------------------------
+.. toctree::
 
-.. automodule:: tests.webtools.rootapp.views
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
+   tests.webtools.rootapp.views
 
 Module contents
 ---------------

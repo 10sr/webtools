@@ -11,14 +11,9 @@ Subpackages
 Submodules
 ----------
 
-tests.webtools.views module
----------------------------
+.. toctree::
 
-.. automodule:: tests.webtools.views
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
+   tests.webtools.views
 
 Module contents
 ---------------

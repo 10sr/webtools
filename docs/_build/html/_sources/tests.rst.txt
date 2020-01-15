@@ -13,14 +13,9 @@ Subpackages
 Submodules
 ----------
 
-tests.tests module
-------------------
+.. toctree::
 
-.. automodule:: tests.tests
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
+   tests.tests
 
 Module contents
 ---------------

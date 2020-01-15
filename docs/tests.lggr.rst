@@ -4,14 +4,9 @@ tests.lggr package
 Submodules
 ----------
 
-tests.lggr.views module
------------------------
+.. toctree::
 
-.. automodule:: tests.lggr.views
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
+   tests.lggr.views
 
 Module contents
 ---------------
