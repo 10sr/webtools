@@ -3,10 +3,11 @@ language: python
 python:
   - 3.7-dev
   - 3.8-dev
-  - 3.9-dev
+  # Fails with:
+  # ImportError: cannot import name 'Mapping' from 'collections' (/home/travis/virtualenv/python3.9-dev/lib/python3.9/collections/__init__.py)
+  # - 3.9-dev
   - 3.7
   - 3.8
-  # - pypy3.7 Not exists
 
 git:
   depth: 10
