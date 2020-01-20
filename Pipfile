@@ -32,8 +32,8 @@ typeguard = "*"
 boto3 = "*"
 django-storages = "*"
 
-[requires]
-python_version = "3.7"
+# [requires]
+# python_version = "3.7"
 
 [pipenv]
 allow_prereleases = true
