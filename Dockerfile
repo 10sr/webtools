@@ -25,7 +25,7 @@ COPY Makefile manage.py settings_insecure.toml ./
 
 COPY .git/HEAD .git/
 COPY .git/refs .git/refs
-RUN mkdir -p .git/objects && git rev-parse HEAD >HEAD.txt && cat HEAD.txt
+RUN mkdir -p .git/objects && git rev-parse --short HEAD >HEAD.txt && cat HEAD.txt
 
 EXPOSE $WEBTOOLS_PORT
 
