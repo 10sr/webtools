@@ -17,7 +17,7 @@ env:
     - PIPENV_IGNORE_VIRTUALENVS=1
 
 install:
-  - python -m pip install pipenv
+  - python -m pip install https://github.com/pypa/pipenv/archive/master.tar.gz
   - make installdeps-dev
 
 script:

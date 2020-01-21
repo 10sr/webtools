@@ -1,7 +1,7 @@
 FROM python:3.8
 
 # Name PIPENV_VERSION is used by pipenv itself
-ENV PIPENV_VERSION_ 2018.11.26
+# ENV PIPENV_VERSION_ 2018.11.26
 
 ENV WEBTOOLS_PORT 7700
 
@@ -11,7 +11,7 @@ RUN apt update && apt install -y gettext
 
 WORKDIR /root/app
 
-RUN pip3 install pipenv==$PIPENV_VERSION_
+RUN pip3 install https://github.com/pypa/pipenv/archive/master.tar.gz
 
 COPY Pipfile Pipfile.lock ./
 RUN pipenv install --deploy # --system
