@@ -2,8 +2,12 @@ dist: xenial   # required for Python >= 3.7
 language: python
 python:
   - 3.7-dev
+  - 3.8-dev
+  # Fails with:
+  # ImportError: cannot import name 'Mapping' from 'collections' (/home/travis/virtualenv/python3.9-dev/lib/python3.9/collections/__init__.py)
+  # - 3.9-dev
   - 3.7
-  # - pypy3.7 Not exists
+  - 3.8
 
 git:
   depth: 10
