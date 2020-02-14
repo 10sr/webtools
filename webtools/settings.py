@@ -125,8 +125,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = _c.STATIC_URL
-
 STATICFILES_DIRS = [os.path.abspath(_c.SEMANTICUI_BASE_DIR)]
 
 if _c.USE_S3:
@@ -142,6 +140,10 @@ if _c.USE_S3:
     AWS_S3_ENDPOINT_URL = _c.AWS_S3_ENDPOINT_URL
     AWS_S3_CUSTOM_DOMAIN = _c.AWS_S3_CUSTOM_DOMAIN
 else:
+    # URL for static files
+    # When USE_S3 and AWS_S3_CUSTOM_DOMAIN is set, this value seems to be ignored.
+    # URL seems to be calculated with AWS_S3_CUSTOM_DOMAIN and AWS_LOCATION
+    STATIC_URL = _c.STATIC_URL
     # Path to local file system which collectstatic copies static files into
     STATIC_ROOT = os.path.abspath(_c.STATIC_ROOT)
 

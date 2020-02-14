@@ -23,8 +23,7 @@ class Config:
     USE_X_FORWARDED_HOST: bool = False
     SEMANTICUI_BASE_DIR: str = ".smanticui_static/"
 
-    # Static Configurations
-    STATIC_URL: str = "/webtools/static/"
+    # Static file Configurations
     USE_S3: bool = False
     # S3
     AWS_ACCESS_KEY_ID: Optional[str] = None
@@ -37,6 +36,7 @@ class Config:
     AWS_S3_ENDPOINT_URL: Optional[str] = None  # Endpoint to upload files
     AWS_S3_CUSTOM_DOMAIN: Optional[str] = None
     # Local Filesystem
+    STATIC_URL: str = "/webtools/static/"
     STATIC_ROOT: str = "static_deploy/webtools/static/"
 
     # Non default but required to pass
