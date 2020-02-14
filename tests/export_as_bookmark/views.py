@@ -57,6 +57,7 @@ http://yahoo.co.jp
     def test_download_404(self, redis_mock):
         redis_mock.return_value.get.return_value = None
 
+        # TODO: Supress WARNING:django.request:Not Found: warning
         response = self._request_get("download", ("12345", "export-name"))
         self.assertEqual(response.status_code, 404)
         redis_mock.return_value.get.assert_called_once_with("12345")
