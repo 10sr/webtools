@@ -133,3 +133,13 @@ mypy:
 	$(pipenv) run mypy meta/*.py
 
 
+
+# apidoc #####################
+
+apidoc_targets := webtools lggr export_as_bookmark
+apidoc: apidoc-initialize
+	$(pipenv) run sphinx-apidoc -f -o docs/ ${apidoc_targets}
+	$(pipenv) run ${MAKE} -C docs html
+
+apidoc-initialize: docs/conf.py
+	$(pipenv) run sphinx-apidoc -F -o docs/ ${apidoc_targets}

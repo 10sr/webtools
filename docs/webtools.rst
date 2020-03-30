@@ -11,12 +11,38 @@ Subpackages
 Submodules
 ----------
 
-.. toctree::
+webtools.config module
+----------------------
 
-   webtools.config
-   webtools.settings
-   webtools.urls
-   webtools.wsgi
+.. automodule:: webtools.config
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+webtools.settings module
+------------------------
+
+.. automodule:: webtools.settings
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+webtools.urls module
+--------------------
+
+.. automodule:: webtools.urls
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+webtools.wsgi module
+--------------------
+
+.. automodule:: webtools.wsgi
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 
 Module contents
 ---------------

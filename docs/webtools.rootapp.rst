@@ -11,13 +11,46 @@ Subpackages
 Submodules
 ----------
 
-.. toctree::
+webtools.rootapp.admin module
+-----------------------------
 
-   webtools.rootapp.admin
-   webtools.rootapp.apps
-   webtools.rootapp.models
-   webtools.rootapp.urls
-   webtools.rootapp.views
+.. automodule:: webtools.rootapp.admin
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+webtools.rootapp.apps module
+----------------------------
+
+.. automodule:: webtools.rootapp.apps
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+webtools.rootapp.models module
+------------------------------
+
+.. automodule:: webtools.rootapp.models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+webtools.rootapp.urls module
+----------------------------
+
+.. automodule:: webtools.rootapp.urls
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+webtools.rootapp.views module
+-----------------------------
+
+.. automodule:: webtools.rootapp.views
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 
 Module contents
 ---------------
