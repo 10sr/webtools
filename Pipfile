@@ -19,6 +19,7 @@ pep8-naming = "*"
 semver = "*"
 sphinx = "*"
 sphinx-rtd-theme = "*"
+flake8-no-implicit-concat = "*"
 
 [packages]
 django = "==2.2.10"
@@ -31,7 +32,6 @@ django-ratelimit = "*"
 typeguard = "*"
 boto3 = "*"
 django-storages = "*"
-
 # [requires]
 # python_version = "3.7"
 
