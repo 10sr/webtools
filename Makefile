@@ -129,7 +129,7 @@ isort:
 # mypy ########################
 
 mypy:
-	$(pipenv) run mypy .
-	$(pipenv) run mypy meta/*.py
+	$(pipenv) run mypy --strict .
+	$(pipenv) run mypy --strict meta/*.py
 
 
