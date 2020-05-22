@@ -71,7 +71,9 @@ class Redis:
         :param k: Key
         :returns: Value of k
         """
-        return self._client.get(k)
+        ret = self._client.get(k)
+        assert ret is None or isinstance(ret, bytes)
+        return ret
 
     def pttl(self, k: str) -> int:
         """
