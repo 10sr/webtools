@@ -3,6 +3,7 @@
 [![Docker Repository on Quay](https://quay.io/repository/10sr/webtools/status "Docker Repository on Quay")](https://quay.io/repository/10sr/webtools)
 [![Documentation Status](https://readthedocs.org/projects/webtools/badge/?version=latest)](https://webtools.readthedocs.io/en/latest/?badge=latest)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![security: bandit](https://img.shields.io/badge/security-bandit-yellow.svg)](https://github.com/PyCQA/bandit)
 
 
 webtools
