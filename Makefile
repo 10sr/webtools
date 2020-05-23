@@ -11,9 +11,9 @@ python3 := $(pipenv) run python3
 
 start: gunicorn
 
-check: app-test check-format check-type
+check: app-test lint check-type
 
-check-format: flake8
+lint: flake8 bandit
 
 check-type: mypy
 
@@ -117,6 +117,9 @@ docker-stop:
 flake8:
 	$(pipenv) run flake8 --version
 	$(pipenv) run flake8 .
+
+bandit:
+	$(pipenv) run bandit -r webtools export_as_bookmark lggr
 
 # black
 

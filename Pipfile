@@ -20,6 +20,7 @@ semver = "*"
 sphinx = "*"
 sphinx-rtd-theme = "*"
 flake8-no-implicit-concat = "*"
+bandit = "*"
 
 [packages]
 django = "==2.2.10"
