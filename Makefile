@@ -42,8 +42,9 @@ semanticui:
 app-test:
 	WEBTOOLS_SETTINGS_TOML=settings_secure_example.toml $(python3) manage.py check --deploy --fail-level WARNING
 	WEBTOOLS_SETTINGS_TOML=tests/settings.toml $(python3) manage.py makemigrations --dry-run --check
+	$(pipenv) run coverage erase
 	WEBTOOLS_SETTINGS_TOML=tests/settings.toml PYTHONWARNINGS=always $(pipenv) run coverage run ./manage.py test tests/ --pattern='*.py'
-	$(pipenv) run coverage xml --fail-under 80
+	$(pipenv) run coverage xml
 
 
 codecov:
