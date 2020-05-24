@@ -21,8 +21,7 @@ from .redis import Redis
 
 
 def index(req: HttpRequest) -> HttpResponse:
-    """
-    Return index.
+    """Return index.
 
     :param req: Request object
     :returns: Index page
@@ -32,8 +31,7 @@ def index(req: HttpRequest) -> HttpResponse:
 
 
 def post(req: HttpRequest) -> HttpResponse:
-    """
-    Receive post request and redirect to download page.
+    """Receive post request and redirect to download page.
 
     :param req: Request object
     :returns: Redirect to done page
@@ -55,8 +53,7 @@ def post(req: HttpRequest) -> HttpResponse:
 
 
 def done(req: HttpRequest, id: str, name: str) -> HttpResponse:
-    """
-    Return link to download exported html file.
+    """Return link to download exported html file.
 
     :param req: Request object
     :param id: Result id
@@ -92,8 +89,7 @@ def done(req: HttpRequest, id: str, name: str) -> HttpResponse:
 
 
 def download(req: HttpRequest, id: str, name: str) -> HttpResponse:
-    """
-    Return exported bookmark content.
+    """Return exported bookmark content.
 
     :param req: Request object
     :param id: Result id

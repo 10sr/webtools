@@ -71,8 +71,7 @@ class Config:
 
     @classmethod
     def from_dict(cls, args: Dict[str, Any]) -> Config:
-        """
-        Set up config from dict object.
+        """Set up config from dict object.
 
         :param args: Dict of configuration names and values
         :returns: Config instance
@@ -81,8 +80,7 @@ class Config:
 
     @classmethod
     def from_toml(cls, filepath: str, section: str) -> Config:
-        """
-        Set up config from TOML file.
+        """Set up config from TOML file.
 
         :param filepath: Input TOML file path
         :param section: Section name in TOML file
