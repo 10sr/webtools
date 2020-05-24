@@ -13,7 +13,7 @@ start: gunicorn
 
 check: app-test lint check-type
 
-lint: flake8 bandit
+lint: flake8
 
 check-type: mypy
 
@@ -117,9 +117,6 @@ docker-stop:
 flake8:
 	$(pipenv) run flake8 --version
 	$(pipenv) run flake8 .
-
-bandit:
-	$(pipenv) run bandit -r webtools export_as_bookmark lggr
 
 # black
 
