@@ -16,8 +16,7 @@ class Redis:
     __singleton_instance: ClassVar[Optional[Redis]] = None
 
     def __init__(self) -> None:
-        """
-        Raise error because this is singleton.
+        """Raise error because this is singleton.
 
         Use get_instance() instead.
 
@@ -27,8 +26,7 @@ class Redis:
 
     @classmethod
     def get_instance(cls) -> Redis:
-        """
-        Get Redis instance.
+        """Get Redis instance.
 
         :returns: Instance
         """
@@ -41,8 +39,7 @@ class Redis:
     url: str
 
     def ready(self, url: str) -> None:
-        """
-        Initialize (reset) redis client..
+        """Initialize (reset) redis client..
 
         :param url: Redis URL
         """
@@ -52,8 +49,7 @@ class Redis:
         return
 
     def set(self, k: str, v: bytes, **kargs: Any) -> Any:
-        """
-        Set key-value pair.
+        """Set key-value pair.
 
         :param k: Key
         :param v: Value
@@ -63,8 +59,7 @@ class Redis:
         return self._client.set(k, v, **kargs)
 
     def get(self, k: str) -> Optional[bytes]:
-        """
-        Get value of key.
+        """Get value of key.
 
         If key does not eixst or expired, return None.
 
@@ -77,8 +72,7 @@ class Redis:
         return ret
 
     def pttl(self, k: str) -> int:
-        """
-        Get the remaining time to live of a key.
+        """Get the remaining time to live of a key.
 
         :param k: Key
         :returns: TTL in millisec

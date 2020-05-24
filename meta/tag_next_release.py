@@ -26,8 +26,7 @@ class Release:
     __semver: semver.VersionInfo
 
     def __init__(self, version: str):
-        """
-        Initialize Release.
+        """Initialize Release.
 
         :param version: Version in format like "v1.2.3"
         """
@@ -35,24 +34,21 @@ class Release:
         return
 
     def __str__(self) -> str:
-        """
-        Return string.
+        """Return string.
 
         :returns: str
         """
         return "v" + str(self.__semver)
 
     def __repr__(self) -> str:
-        """
-        Repr.
+        """Repr.
 
         :returns: repr
         """
         return f'Release(version="v{str(self.__semver)}")'
 
     def next(self, target: ReleaseTarget) -> Release:
-        """
-        Return next release.
+        """Return next release.
 
         :param target: Target to bump
         :returns: Next Release object
@@ -71,8 +67,7 @@ class Release:
 
 
 def get_latest_release() -> Release:
-    """
-    Return latest release object.
+    """Return latest release object.
 
     :returns: Latest Release object
     """
@@ -86,8 +81,7 @@ def get_latest_release() -> Release:
 
 
 def tag_release(release: Release) -> None:
-    """
-    Add release tag.
+    """Add release tag.
 
     Currently add tag to HEAD revision.
 
@@ -105,8 +99,7 @@ def tag_release(release: Release) -> None:
 @click.option("--minor", "target", flag_value=ReleaseTarget.MINOR)
 @click.option("--patch", "target", flag_value=ReleaseTarget.PATCH, default=True)
 def main(dryrun: bool, target: ReleaseTarget) -> None:
-    """
-    tag_next_release entrypoint.
+    """tag_next_release entrypoint.
 
     :param dryrun: Dryrun flag
     :param target: Target to bump

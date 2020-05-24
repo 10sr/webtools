@@ -19,8 +19,7 @@ logger = logging.getLogger(__name__)
 
 
 def index(req: HttpRequest) -> HttpResponse:
-    """
-    Return page to test some requests.
+    """Return page to test some requests.
 
     :param req: Request object
     :returns: Test page
@@ -31,8 +30,7 @@ def index(req: HttpRequest) -> HttpResponse:
 
 
 def get(req: HttpRequest) -> HttpResponse:
-    """
-    Log get requests.
+    """Log get requests.
 
     :param req: Request object
     :returns: Get log
@@ -63,8 +61,7 @@ Id: {request_id} get/ Requested <<<<<
 )
 @csrf_exempt  # type: ignore   # disallow_untyped_decorators
 def post(req: HttpRequest) -> HttpResponse:
-    """
-    Log post requests.
+    """Log post requests.
 
     :param req: Request object
     :returns: Post log

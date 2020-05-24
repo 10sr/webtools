@@ -15,8 +15,7 @@ app_paths = ["export-as-bookmark", "lggr"]
 
 
 def index(req: HttpRequest) -> HttpResponse:
-    """
-    Return index page.
+    """Return index page.
 
     :param req: Request object
     :returns: Root index page
