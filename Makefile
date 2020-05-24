@@ -44,7 +44,6 @@ app-test:
 	WEBTOOLS_SETTINGS_TOML=tests/settings.toml $(python3) manage.py makemigrations --dry-run --check
 	$(pipenv) run coverage erase
 	WEBTOOLS_SETTINGS_TOML=tests/settings.toml PYTHONWARNINGS=always $(pipenv) run coverage run ./manage.py test tests/ --pattern='*.py'
-	$(pipenv) run coverage xml
 
 
 codecov:
