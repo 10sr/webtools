@@ -72,7 +72,8 @@ class Redis:
         :returns: Value of k
         """
         ret = self._client.get(k)
-        assert ret is None or isinstance(ret, bytes)
+        # S101 Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+        assert ret is None or isinstance(ret, bytes)  # noqa: S101
         return ret
 
     def pttl(self, k: str) -> int:

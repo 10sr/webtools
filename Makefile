@@ -11,9 +11,9 @@ python3 := $(pipenv) run python3
 
 start: gunicorn
 
-check: app-test check-format check-type
+check: app-test lint check-type
 
-check-format: flake8
+lint: flake8
 
 check-type: mypy
 
