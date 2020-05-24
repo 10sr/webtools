@@ -76,7 +76,9 @@ def get_latest_release() -> Release:
 
     :returns: Latest Release object
     """
-    proc = subprocess.run(
+    # S603 subprocess call - check for execution of untrusted input.
+    # S607 Starting a process with a partial executable path
+    proc = subprocess.run(  # noqa: S603,S607
         ["git", "describe", "--tags", "--abbrev=0"], check=True, capture_output=True
     )
     tag = proc.stdout.decode("ascii").strip()
@@ -92,7 +94,8 @@ def tag_release(release: Release) -> None:
     :param release: Release object
     """
     cmd = ["git", "tag", "--sign", str(release)]
-    subprocess.run(cmd, check=True)
+    # S603 subprocess call - check for execution of untrusted input.
+    subprocess.run(cmd, check=True)  # noqa: 603
     return
 
 
