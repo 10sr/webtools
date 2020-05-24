@@ -21,6 +21,7 @@ sphinx = "*"
 sphinx-rtd-theme = "*"
 flake8-no-implicit-concat = "*"
 flake8-bandit = "*"
+hacking = "*"
 
 [packages]
 django = "==2.2.10"
