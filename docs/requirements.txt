@@ -33,7 +33,7 @@ pydocstyle==5.0.2
 pyflakes==2.2.0
 pygments==2.6.1
 pyparsing==2.4.7
-pytz==2019.3
+pytz==2020.1
 regex==2020.1.8
 requests==2.22.0
 semver==2.9.0
