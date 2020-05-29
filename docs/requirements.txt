@@ -1,6 +1,6 @@
 -i https://pypi.org/simple/
 alabaster==0.7.12
-appdirs==1.4.3
+appdirs==1.4.4
 attrs==19.3.0
 babel==2.8.0
 black==19.10b0
