@@ -36,6 +36,7 @@ boto3 = "*"
 django-storages = "*"
 # [requires]
 # python_version = "3.7"
+flake8-broken-line = "*"
 
 [pipenv]
 allow_prereleases = true
