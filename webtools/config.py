@@ -4,10 +4,12 @@ from __future__ import annotations
 
 import dataclasses
 
-from typing import Any, Dict, Optional, get_type_hints
+from typing import Any, ClassVar, Dict, Optional, Type, get_type_hints
 
+import marshmallow_dataclass
 import toml
-import typeguard
+from marshmallow import Schema
+# import typeguard
 
 
 @dataclasses.dataclass(frozen=True)
@@ -55,19 +57,19 @@ class Config:
 
     WEBTOOLS_REVISION_FILEPATH: Optional[str] = "HEAD.txt"
 
-    def __post_init__(self) -> None:
-        """Conduct explicit type check."""
-        # When importing `annotations' filed.type is a str of
-        # name of type, not the object
-        # This get_type_hints call fails to type-check, but actually
-        # it is acceptable.
-        # > error: Argument 1 to "get_type_hints" has incompatible type "Config"; expected "Callable[..., Any]"
-        types = get_type_hints(self, globals())  # type: ignore
-        for field in dataclasses.fields(self):
-            typeguard.check_type(
-                field.name, getattr(self, field.name), types[field.name]
-            )
-        return
+    # def __post_init__(self) -> None:
+    #     """Conduct explicit type check."""
+    #     # When importing `annotations' filed.type is a str of
+    #     # name of type, not the object
+    #     # This get_type_hints call fails to type-check, but actually
+    #     # it is acceptable.
+    #     # > error: Argument 1 to "get_type_hints" has incompatible type "Config"; expected "Callable[..., Any]"
+    #     types = get_type_hints(self, globals())  # type: ignore
+    #     for field in dataclasses.fields(self):
+    #         typeguard.check_type(
+    #             field.name, getattr(self, field.name), types[field.name]
+    #         )
+    #     return
 
     @classmethod
     def from_dict(cls, args: Dict[str, Any]) -> Config:
@@ -76,7 +78,8 @@ class Config:
         :param args: Dict of configuration names and values
         :returns: Config instance
         """
-        return cls(**args)
+        schema = marshmallow_dataclass.class_schema(cls)
+        return schema().load(args)
 
     @classmethod
     def from_toml(cls, filepath: str, section: str) -> Config:
