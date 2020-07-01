@@ -56,20 +56,6 @@ class Config:
 
     WEBTOOLS_REVISION_FILEPATH: Optional[str] = "HEAD.txt"
 
-    # def __post_init__(self) -> None:
-    #     """Conduct explicit type check."""
-    #     # When importing `annotations' filed.type is a str of
-    #     # name of type, not the object
-    #     # This get_type_hints call fails to type-check, but actually
-    #     # it is acceptable.
-    #     # > error: Argument 1 to "get_type_hints" has incompatible type "Config"; expected "Callable[..., Any]"
-    #     types = get_type_hints(self, globals())  # type: ignore
-    #     for field in dataclasses.fields(self):
-    #         typeguard.check_type(
-    #             field.name, getattr(self, field.name), types[field.name]
-    #         )
-    #     return
-
     @classmethod
     def from_dict(cls, args: Dict[str, Any]) -> "Config":
         """Set up config from dict object.
