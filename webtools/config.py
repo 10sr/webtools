@@ -1,6 +1,7 @@
 """Config object."""
 
-from __future__ import annotations
+# annotations cannot be used along with marshmallow_dataclass
+# from __future__ import annotations
 
 import dataclasses
 
@@ -8,8 +9,6 @@ from typing import Any, ClassVar, Dict, Optional, Type, get_type_hints
 
 import marshmallow_dataclass
 import toml
-from marshmallow import Schema
-# import typeguard
 
 
 @dataclasses.dataclass(frozen=True)
@@ -72,17 +71,18 @@ class Config:
     #     return
 
     @classmethod
-    def from_dict(cls, args: Dict[str, Any]) -> Config:
+    def from_dict(cls, args: Dict[str, Any]) -> "Config":
         """Set up config from dict object.
 
         :param args: Dict of configuration names and values
         :returns: Config instance
         """
-        schema = marshmallow_dataclass.class_schema(cls)
-        return schema().load(args)
+        schema = marshmallow_dataclass.class_schema(cls)()
+        ret: "Config" = schema.load(args)
+        return ret
 
     @classmethod
-    def from_toml(cls, filepath: str, section: str) -> Config:
+    def from_toml(cls, filepath: str, section: str) -> "Config":
         """Set up config from TOML file.
 
         :param filepath: Input TOML file path
