@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "57361deb32602abeca05a270d3f7be5e185cb3baf48e968836ccebedcc98ee09"
+            "sha256": "00a6729d1d68adf0f0cc8e0cf2076f8d99618f4af5d83d92a02651714bcd41a6"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -16,18 +16,18 @@
     "default": {
         "boto3": {
             "hashes": [
-                "sha256:77d926c16ab2ab2bfe68811f3bc987e7d79c97f3e2adebf9265c587cdb1fc47b",
-                "sha256:7f558165eaa608a5d0e05227ee820f4b3cc74533a52c9dde7eb488eba091d50d"
+                "sha256:4c2f5f9f28930e236845e2cddbe01cb093ca96dc1f5c6e2b2b254722018a2268",
+                "sha256:87beffba2360b8077413f2d473cb828d0a5bda513bd1d6fb7b137c57b686aeb6"
             ],
             "index": "pypi",
-            "version": "==1.14.13"
+            "version": "==1.14.14"
         },
         "botocore": {
             "hashes": [
-                "sha256:37b65cc48c99b7dd4d5606e56f76ecd88eb7be392ea8a166df734a6b3035301c",
-                "sha256:5ac9b53a75852fe4282be8741c8136e6948714fef6eff1bd9babb861f8647ba3"
+                "sha256:6a2e9768dad8ae9771302d5922b977dca6bb9693f9b6a5f6ed0e7ac375e2ca40",
+                "sha256:96d668ae5246d236ea83e4586349552d6584e8b1551ae2fccc0bd4ed528a746f"
             ],
-            "version": "==1.17.13"
+            "version": "==1.17.14"
         },
         "dj-database-url": {
             "hashes": [
@@ -47,11 +47,11 @@
         },
         "django-ratelimit": {
             "hashes": [
-                "sha256:40dd23dcdda413d2199bb88b4d9151bf66ea19586b2047ada313ddcf77e2959c",
-                "sha256:ddb6bd68a7a25fab335a0441671681ce9993167e640a2301a2e0e07ce9dd46fb"
+                "sha256:ce35b746b2ccf0f288daa65fd33adf7ae4de57a4f6cd44e55cba818152e30b72",
+                "sha256:df976edf41ee2f8f388a0f5778988a2e91d0cee8299b0dcd71cd7acf28015375"
             ],
             "index": "pypi",
-            "version": "==2.0.0"
+            "version": "==3.0.0"
         },
         "django-storages": {
             "hashes": [
@@ -216,14 +216,6 @@
             ],
             "index": "pypi",
             "version": "==0.10.1"
-        },
-        "typeguard": {
-            "hashes": [
-                "sha256:529ef3d88189cc457f4340388028412f71be8091c2c943465146d4170fb67288",
-                "sha256:e258567e62d28f9a51d4f7c71f491154e9ef0889286ad2f37e3e22e4f668b21b"
-            ],
-            "index": "pypi",
-            "version": "==2.9.1"
         },
         "typing-extensions": {
             "hashes": [
