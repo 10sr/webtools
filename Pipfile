@@ -31,12 +31,12 @@ redis = "*"
 dj-database-url = "*"
 toml = "*"
 django-ratelimit = "*"
-typeguard = "*"
 boto3 = "*"
 django-storages = "*"
 # [requires]
 # python_version = "3.7"
 flake8-broken-line = "*"
+marshmallow-dataclass = "*"
 
 [pipenv]
 allow_prereleases = true
