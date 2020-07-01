@@ -24,7 +24,7 @@ flake8-bandit = "*"
 hacking = "*"
 
 [packages]
-django = "==2.2.10"
+django = "==2.2.13"
 gunicorn = "*"
 honcho = "*"
 redis = "*"
