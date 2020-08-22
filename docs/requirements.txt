@@ -29,7 +29,7 @@ packaging==20.4
 pathspec==0.8.0
 pep8-naming==0.10.0
 pycodestyle==2.6.0
-pydocstyle==5.0.2
+pydocstyle==5.1.0
 pyflakes==2.2.0
 pygments==2.6.1
 pyparsing==2.4.7
