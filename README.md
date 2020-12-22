@@ -15,7 +15,7 @@ Small Web Tools (Without Login)
 Requirements
 ------------
 
-- Python3 >= 3.7
+- Python3 >= 3.8
 - Pipenv
 - Redis
 
